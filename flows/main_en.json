@@ -1,0 +1,92 @@
+{
+  "id": "main",
+  "name": "Main Flow (English)",
+  "stages": [
+    {
+      "id": "welcome",
+      "message": "🌐 VPN Generator – to stay connected with loved ones even when everything around is being shut down.\n\nIMPORTANT: here you get an entire server. It's a valuable and limited resource, so there are simple rules:\n\n• Start sharing VPN keys within 24 hours.\n• From day 8 after registration, have at least 10 active users.\n\nOr you can get a VIP brigade with higher speed and no waiting.\n\nPress the button below ↓",
+      "buttons": [
+        {"label": "I want a brigade", "action": "goto", "target": "captcha"},
+        {"label": "Buy VIP brigade", "action": "call", "target": "vip_redirect"},
+        {"label": "Ask a question", "action": "url", "target": "{{support_url}}"},
+        {"label": "Restore my brigade", "action": "goto", "target": "restore_start"}
+      ]
+    },
+    {
+      "id": "quiz",
+      "message": "Great that you decided to become a VPN brigadier and share access to the free internet!\n\nPlease send any picture to this chat: we need to make sure you're a real person, not a troll from under the bridge.\n\nOn the next step you'll get a VPN brigade. More details in the manual: https://bit.ly/VPNgenManual",
+      "input": "photo",
+      "on_success": "wait_approval"
+    },
+    {
+      "id": "wait_approval",
+      "message": "Wow, what a picture! Our whole team is looking at it and will answer you soon.",
+      "action": "submit_receipt"
+    },
+    {
+      "id": "restore_start",
+      "message": "This is where brigades get restored. We can *restore your brigade* if you've lost your config and need to regain control.\n\nOr\n\nWe can issue you a *new brigade* if we deleted your old one for violating the terms of use. A new brigade means you'll have to re-distribute configs to your users.\n\nIn both cases you _must know the brigadier name and six magic words_. Shall we go?",
+      "buttons": [
+        {"label": "Start", "action": "goto", "target": "restore_name"},
+        {"label": "I want a VIP brigade", "action": "goto", "target": "welcome"},
+        {"label": "Ask a question", "action": "url", "target": "{{support_url}}"}
+      ]
+    },
+    {
+      "id": "restore_name",
+      "message": "To restore your config, please type the brigadier name. That is, an adjective and a laureate's surname, for example \"Веселый Эйнштейн\" or \"Потрясающая Кюри\".",
+      "input": "text",
+      "on_success": "restore_words",
+      "on_failure": "restore_name_fail",
+      "buttons": [
+        {"label": "I want a VIP brigade", "action": "goto", "target": "welcome"},
+        {"label": "Ask a question", "action": "url", "target": "{{support_url}}"}
+      ]
+    },
+    {
+      "id": "restore_name_fail",
+      "message": "That doesn't look like a name, please try again. Be careful — you need to enter an adjective and a laureate's surname, for example \"Веселый Эйнштейн\" or \"Потрясающая Кюри\".\n\nYou can start from scratch. But there's a catch: right now we can't issue a new regular brigade — resources are exhausted.\nBut you can get a VIP brigade right away 😎. It's yours — no limits, no waiting, no deletions.",
+      "buttons": [
+        {"label": "I want a VIP brigade", "action": "goto", "target": "welcome"},
+        {"label": "Ask a question", "action": "url", "target": "{{support_url}}"}
+      ]
+    },
+    {
+      "id": "restore_words",
+      "message": "Great, now please tell us your 6 magic words.",
+      "input": "text",
+      "on_success": "restore_grant",
+      "on_failure": "restore_words_fail",
+      "action": "verify_restore_words",
+      "buttons": [
+        {"label": "Try again", "action": "goto", "target": "restore_name"},
+        {"label": "I want a VIP brigade", "action": "goto", "target": "welcome"},
+        {"label": "Ask a question", "action": "url", "target": "{{support_url}}"}
+      ]
+    },
+    {
+      "id": "restore_words_fail",
+      "message": "Open sesame didn't work — something's wrong with the name or the words. Be careful — the name consists of an adjective and a laureate's surname, for example \"Веселый Эйнштейн\" or \"Потрясающая Кюри\". And the six words must be in exactly the same order we gave them to you!\n\nIf you don't remember the name and/or magic words — maybe it's time to start fresh. But there's a catch: right now we can't issue a new regular brigade — resources are exhausted.\nBut you can get a VIP brigade right away 😎. It's yours — no limits, no waiting, no deletions.",
+      "buttons": [
+        {"label": "Try again", "action": "goto", "target": "restore_name"},
+        {"label": "I want a VIP brigade", "action": "goto", "target": "welcome"},
+        {"label": "Ask a question", "action": "url", "target": "{{support_url}}"}
+      ]
+    },
+    {
+      "id": "restore_grant",
+      "message": "We recognized you — here's your config!",
+      "action": "send_restore_config"
+    },
+    {
+      "id": "vip",
+      "message": "You're almost a VIP brigadier with maximum protection and speed! Go to the bot to purchase a VIP brigade — it's quick and hassle-free.",
+      "action": "vip_redirect"
+    },
+    {
+      "id": "conversation_finished",
+      "message": "Our pleasant conversation has ended.\n\nIf you've forgotten your name and 6 important words, even our support team won't be able to help. This is a condition of our security."
+    }
+  ],
+  "updated_at": "2026-04-07T00:00:00Z"
+}

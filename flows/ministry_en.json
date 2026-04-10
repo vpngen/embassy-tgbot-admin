@@ -1,0 +1,18 @@
+{
+  "messages": {
+    "grant_message": "Congratulations! You are a brigadier! Here is the full [user guide](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/).\nYour code name: `%s`. It is needed to contact support. This way we will know it's you without knowing who you are \u263A.",
+    "grant_message_vip": "Congratulations on your VIP brigadier status! With premium support and deletion protection, life will definitely take on new colors! Here is the full [user guide](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/).\nYour code name: `%s`. It is needed to contact support. This way we will know it's you without knowing who you are \u263A.",
+    "person_description": "*Reference*\n\nNobel Prize laureate in physics: *%s*\n_%s_\n\uD83D\uDC49 [Wikipedia article](%s)\n\n",
+    "seed_desc": "The last but important step. I have 6 words for you — I'll give them. You need to store them somewhere — I won't give you a place to store them. These words + name are *the only way* to restore access to your VPN.\n\nHide these words where you can reach them in any situation, but where they can't be found by unwanted parties. Better in a password manager or some other clever place.",
+    "words_message": "*6 important words:*\n`%s`",
+    "outline_access": "*Step 2.* Your *personal* Outline key is below. Copy it, open Outline and paste it. Then make sure to click \"Connect\"",
+    "configs_message": "*Step 3.* Connected? Then *make sure* to follow the link [http://vpn.works/](http://vpn.works/) *within 24 hours* to activate VPN and your brigade.",
+    "proto0_config": "Just in case, your *personal* Reality key (another protocol we support) is below. Use it with a special app if nothing else works. Copy it and add it to the app you chose for Reality (e.g. Hiddify)",
+    "restore_grant": "We recognized you, here is your config!",
+    "restore_configs": "*Step 3.* Connected? Then *make sure* to follow the link [http://vpn.works/](http://vpn.works/) *within 24 hours* to activate VPN and your brigade. *You will not be able to restore the brigade within 30 days if you don't visit the keydesk within 24 hours.*",
+    "restore_too_early": "Too early to restore. Please try again later. Last restoration: %s\n\nRemember that restoring a deleted brigade is limited to 3 times per month",
+    "outline_download_short": "Three simpleEEE steps to a free internet! \n*Step 1.* Download and install Outline.",
+    "outline_download_full": "To use Outline, download and install the app for your platform\nℹ️ [@vpngen](http://t.me/vpngen)"
+  },
+  "updated_at": "0001-01-01T00:00:00Z"
+}

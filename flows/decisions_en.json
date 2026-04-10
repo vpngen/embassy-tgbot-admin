@@ -1,0 +1,104 @@
+{
+  "decisions": [
+    {
+      "code": 0,
+      "key": "unknown",
+      "button": "🤷 Unknown",
+      "template": "Something went wrong... {{support_link}}",
+      "has_support_link": true
+    },
+    {
+      "code": 1,
+      "key": "accept_general",
+      "button": "👍 Approve",
+      "template": "",
+      "has_support_link": false
+    },
+    {
+      "code": 2,
+      "key": "accept_cats",
+      "button": "😻 Cats",
+      "template": "Cats are sacred! 😻",
+      "has_support_link": false
+    },
+    {
+      "code": 3,
+      "key": "reject_unacceptable",
+      "button": "🖕 Ban",
+      "template": "It seems you sent something very inappropriate. You've been banned from the service forever 🤷. {{support_link}}",
+      "has_support_link": true
+    },
+    {
+      "code": 4,
+      "key": "reject_unreadable",
+      "button": "🕶 Unreadable",
+      "template": "Please send a readable receipt! {{support_link}}",
+      "has_support_link": true
+    },
+    {
+      "code": 5,
+      "key": "reject_bank_card",
+      "button": "💳 Card",
+      "template": "It looks like you paid by card. Please bring a receipt paid with cash. {{support_link}}",
+      "has_support_link": true
+    },
+    {
+      "code": 6,
+      "key": "reject_electronic",
+      "button": "📱 Electronic",
+      "template": "Please send the receipt itself, not the result of its decryption! {{support_link}}",
+      "has_support_link": true
+    },
+    {
+      "code": 7,
+      "key": "reject_incomplete",
+      "button": "🌓 Incomplete",
+      "template": "Please send the full receipt! {{support_link}}",
+      "has_support_link": true
+    },
+    {
+      "code": 8,
+      "key": "reject_unverifiable",
+      "button": "👮 Unverifiable",
+      "template": "The receipt doesn't match the tax office records. Please send another one! {{support_link}}",
+      "has_support_link": true
+    },
+    {
+      "code": 9,
+      "key": "reject_amount_mismatch",
+      "button": "💵 Amount",
+      "template": "Something seems seriously wrong with the receipt amount. Please send another one! {{support_link}}",
+      "has_support_link": true
+    },
+    {
+      "code": 10,
+      "key": "reject_too_old",
+      "button": "📅 Too old",
+      "template": "The receipt seems to be outdated. Please send one that's no older than a week. {{support_link}}",
+      "has_support_link": true
+    },
+    {
+      "code": 11,
+      "key": "reject_with_callback",
+      "button": "☎️ Contact us",
+      "template": "Something seems wrong with the receipt and we need to talk. Please contact [us]({{support_url}}).",
+      "has_support_link": false
+    },
+    {
+      "code": 12,
+      "key": "reject_doubled",
+      "button": "✌️ Duplicate",
+      "template": "It looks like this image has already been sent to us. Please send a different one. {{support_link}}",
+      "has_support_link": true
+    },
+    {
+      "code": 13,
+      "key": "reject_busy",
+      "button": "💣 Busy",
+      "template": "Sorry, we're extremely busy. Please try again later 🙏",
+      "has_support_link": false
+    }
+  ],
+  "support_link_template": "If you're sure you did everything correctly, please contact [support]({{support_url}}).",
+  "updated_at": "2026-04-07T00:00:00Z"
+}

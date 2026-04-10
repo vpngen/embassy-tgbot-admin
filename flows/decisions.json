@@ -1,0 +1,104 @@
+{
+  "decisions": [
+    {
+      "code": 0,
+      "key": "unknown",
+      "button": "🤷 Не знаю",
+      "template": "Что-то пошло не так... {{support_link}}",
+      "has_support_link": true
+    },
+    {
+      "code": 1,
+      "key": "accept_general",
+      "button": "👍 Подтвердить",
+      "template": "",
+      "has_support_link": false
+    },
+    {
+      "code": 2,
+      "key": "accept_cats",
+      "button": "😻 Котики",
+      "template": "Котики - это святое! 😻",
+      "has_support_link": false
+    },
+    {
+      "code": 3,
+      "key": "reject_unacceptable",
+      "button": "🖕 Бан",
+      "template": "Похоже, ты прислал(-а) что-то очень нехорошее. Тебя забанили в сервисе на веки 🤷 . {{support_link}}",
+      "has_support_link": true
+    },
+    {
+      "code": 4,
+      "key": "reject_unreadable",
+      "button": "🕶 Нечит.",
+      "template": "Пожалуйста, пришли читаемый чек! {{support_link}}",
+      "has_support_link": true
+    },
+    {
+      "code": 5,
+      "key": "reject_bank_card",
+      "button": "💳 Безнал",
+      "template": "Похоже, ты оплатил(-а) картой. Пожалуйста принеси чек, оплаченный наличкой. {{support_link}}",
+      "has_support_link": true
+    },
+    {
+      "code": 6,
+      "key": "reject_electronic",
+      "button": "📱 Эл-ый",
+      "template": "Пожалуйста, пришли сам чек, а не результат его расшифровки! {{support_link}}",
+      "has_support_link": true
+    },
+    {
+      "code": 7,
+      "key": "reject_incomplete",
+      "button": "🌓 Неполн.",
+      "template": "Пожалуйста, пришли чек целиком! {{support_link}}",
+      "has_support_link": true
+    },
+    {
+      "code": 8,
+      "key": "reject_unverifiable",
+      "button": "👮 Непров.",
+      "template": "Чек не бьется с налоговой, пришли пожалуйста другой чек! {{support_link}}",
+      "has_support_link": true
+    },
+    {
+      "code": 9,
+      "key": "reject_amount_mismatch",
+      "button": "💵 Сумма",
+      "template": "Похоже что-то серьезно не так с суммой чека. Пришли пожалуйста другой! {{support_link}}",
+      "has_support_link": true
+    },
+    {
+      "code": 10,
+      "key": "reject_too_old",
+      "button": "📅 Старый",
+      "template": "Похоже чек устарел. Пришли пожалуйста тот, что не старше недели. {{support_link}}",
+      "has_support_link": true
+    },
+    {
+      "code": 11,
+      "key": "reject_with_callback",
+      "button": "☎️ Свяжитесь",
+      "template": "Похоже что-то не так с чеком и нам нужно поговорить. Свяжись пожалуйста с [нами]({{support_url}}).",
+      "has_support_link": false
+    },
+    {
+      "code": 12,
+      "key": "reject_doubled",
+      "button": "✌️ Повтор",
+      "template": "Похоже такую картинку нам уже присылали. Пришли пожалуйста другую. {{support_link}}",
+      "has_support_link": true
+    },
+    {
+      "code": 13,
+      "key": "reject_busy",
+      "button": "💣 Занят",
+      "template": "Прости нас, очень много работы. Попробуй пожалуйста позже 🙏",
+      "has_support_link": false
+    }
+  ],
+  "support_link_template": "Если ты уверен(-а), что все сделал(-а) правильно — напиши пожалуйста в [поддержку]({{support_url}}).",
+  "updated_at": "2026-04-06T00:00:00Z"
+}
