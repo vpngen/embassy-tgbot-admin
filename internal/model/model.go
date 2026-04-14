@@ -66,11 +66,13 @@ type DecisionUpdate struct {
 
 // MinistryMessages holds all translatable messages used in ministry.go.
 type MinistryMessages struct {
-	Messages  map[string]string `json:"messages"`
-	UpdatedAt time.Time         `json:"updated_at"`
+	Messages  map[string]string            `json:"messages"`
+	Downloads map[string]map[string]string `json:"downloads,omitempty"`
+	UpdatedAt time.Time                    `json:"updated_at"`
 }
 
 // MinistryMessagesUpdate is the payload for updating ministry messages.
 type MinistryMessagesUpdate struct {
-	Messages map[string]string `json:"messages"`
+	Messages  map[string]string            `json:"messages,omitempty"`
+	Downloads map[string]map[string]string `json:"downloads,omitempty"`
 }

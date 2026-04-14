@@ -34,8 +34,9 @@ func main() {
 	}
 
 	usersPath := *usersFile
+	apiKey := os.Getenv("ADMIN_API_KEY")
 
-	a, err := auth.New(usersPath)
+	a, err := auth.New(usersPath, apiKey)
 	if err != nil {
 		log.Fatalf("init auth: %s", err)
 	}

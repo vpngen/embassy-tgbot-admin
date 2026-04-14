@@ -30,7 +30,7 @@ func (h *Handler) RegisterRoutes(mux *http.ServeMux) {
 	// Public: login endpoint (Basic Auth → JWT)
 	mux.HandleFunc("POST /api/login", h.login)
 
-	// Protected API routes
+	// Protected API routes (require JWT or API key)
 	protected := http.NewServeMux()
 	protected.HandleFunc("GET /api/flows", h.listFlows)
 	protected.HandleFunc("GET /api/flows/{id}", h.getFlow)
@@ -334,13 +334,24 @@ func (h *Handler) updateMinistryMessages(w http.ResponseWriter, r *http.Request)
 		return
 	}
 
-	if len(update.Messages) == 0 {
-		httpError(w, http.StatusBadRequest, "messages must not be empty")
+	if len(update.Messages) == 0 && len(update.Downloads) == 0 {
+		httpError(w, http.StatusBadRequest, "messages or downloads must not be empty")
 		return
 	}
 
+	// Merge with existing data so a partial update doesn't erase the other field.
 	cfg := &model.MinistryMessages{
-		Messages: update.Messages,
+		Messages:  update.Messages,
+		Downloads: update.Downloads,
+	}
+	existing, err := h.store.GetMinistryMessages(lang)
+	if err == nil {
+		if cfg.Messages == nil {
+			cfg.Messages = existing.Messages
+		}
+		if cfg.Downloads == nil {
+			cfg.Downloads = existing.Downloads
+		}
 	}
 
 	if err := h.store.SaveMinistryMessages(cfg, lang); err != nil {

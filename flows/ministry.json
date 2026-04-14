@@ -14,5 +14,22 @@
     "outline_download_short": "Осталось три простых шага до свободного интернета! \n*Шаг 1.* Скачай и установи Outline.",
     "outline_download_full": "Для использования Outline скачай и установи приложение для своей платформы\nℹ️ [@vpngen](http://t.me/vpngen)"
   },
+  "downloads": {
+    "outline": {
+      "для Android": "https://play.google.com/store/apps/details?id=org.outline.android.client",
+      "для iOS": "https://itunes.apple.com/us/app/outline-app/id1356177741",
+      "для Chrome": "https://play.google.com/store/apps/details?id=org.outline.android.client",
+      "для Windows": "https://s3.amazonaws.com/outline-releases/client/windows/stable/Outline-Client.exe",
+      "для macOS": "https://itunes.apple.com/us/app/outline-app/id1356178125",
+      "для Linux": "https://s3.amazonaws.com/outline-releases/client/linux/stable/Outline-Client.AppImage"
+    },
+    "amnezia": {
+      "для Android": "https://play.google.com/store/apps/details?id=org.amnezia.vpn",
+      "для iOS": "https://apps.apple.com/us/app/amneziavpn/id1600529900",
+      "для Windows": "https://github.com/amnezia-vpn/amnezia-client/releases/download/4.5.3.0/AmneziaVPN_4.5.3.0_x64.exe",
+      "для macOS": "https://github.com/amnezia-vpn/amnezia-client/releases/download/4.5.3.0/AmneziaVPN_4.5.3.0.dmg",
+      "для Linux": "https://github.com/amnezia-vpn/amnezia-client/releases/download/4.5.3.0/AmneziaVPN_Linux_installer.tar.zip"
+    }
+  },
   "updated_at": "0001-01-01T00:00:00Z"
 }

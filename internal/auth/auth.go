@@ -28,11 +28,13 @@ type Auth struct {
 	users     []User
 	filePath  string
 	jwtSecret []byte
+	apiKey    string // shared secret for service-to-service calls
 }
 
 // New loads users from filePath (creates the file if missing) and generates a JWT secret.
-func New(filePath string) (*Auth, error) {
-	a := &Auth{filePath: filePath}
+// apiKey is the shared secret for service-to-service authentication (X-API-Key header).
+func New(filePath, apiKey string) (*Auth, error) {
+	a := &Auth{filePath: filePath, apiKey: apiKey}
 
 	// Generate a random JWT signing key on startup.
 	secret := make([]byte, 32)
@@ -157,9 +159,18 @@ func (a *Auth) ValidateToken(tokenStr string) (string, error) {
 	return sub, nil
 }
 
-// Middleware returns an HTTP middleware that requires a valid JWT Bearer token.
+// Middleware returns an HTTP middleware that accepts either:
+//   - X-API-Key header matching the configured apiKey (service-to-service), or
+//   - Authorization: Bearer <JWT> (admin frontend).
 func (a *Auth) Middleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		// Check API key first (service-to-service).
+		if a.apiKey != "" && r.Header.Get("X-API-Key") == a.apiKey {
+			next.ServeHTTP(w, r)
+			return
+		}
+
+		// Fall back to JWT Bearer token (admin frontend).
 		header := r.Header.Get("Authorization")
 		if !strings.HasPrefix(header, "Bearer ") {
 			http.Error(w, `{"error":"unauthorized"}`, http.StatusUnauthorized)

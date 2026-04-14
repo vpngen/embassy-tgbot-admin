@@ -14,5 +14,22 @@
     "outline_download_short": "Three simpleEEE steps to a free internet! \n*Step 1.* Download and install Outline.",
     "outline_download_full": "To use Outline, download and install the app for your platform\nℹ️ [@vpngen](http://t.me/vpngen)"
   },
+  "downloads": {
+    "outline": {
+      "for Android": "https://play.google.com/store/apps/details?id=org.outline.android.client",
+      "for iOS": "https://itunes.apple.com/us/app/outline-app/id1356177741",
+      "for Chrome": "https://play.google.com/store/apps/details?id=org.outline.android.client",
+      "for Windows": "https://s3.amazonaws.com/outline-releases/client/windows/stable/Outline-Client.exe",
+      "for macOS": "https://itunes.apple.com/us/app/outline-app/id1356178125",
+      "for Linux": "https://s3.amazonaws.com/outline-releases/client/linux/stable/Outline-Client.AppImage"
+    },
+    "amnezia": {
+      "for Android": "https://play.google.com/store/apps/details?id=org.amnezia.vpn",
+      "for iOS": "https://apps.apple.com/us/app/amneziavpn/id1600529900",
+      "for Windows": "https://github.com/amnezia-vpn/amnezia-client/releases/download/4.5.3.0/AmneziaVPN_4.5.3.0_x64.exe",
+      "for macOS": "https://github.com/amnezia-vpn/amnezia-client/releases/download/4.5.3.0/AmneziaVPN_4.5.3.0.dmg",
+      "for Linux": "https://github.com/amnezia-vpn/amnezia-client/releases/download/4.5.3.0/AmneziaVPN_Linux_installer.tar.zip"
+    }
+  },
   "updated_at": "0001-01-01T00:00:00Z"
 }
