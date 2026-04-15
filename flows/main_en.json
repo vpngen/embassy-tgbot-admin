@@ -165,11 +165,47 @@
     },
     {
       "id": "conversation_finished",
-      "message": "Our pleasant conversation has ended.\n\nIf you've forgotten your name and 6 important words, even our support team won't be able to help. This is a condition of our security."
+      "message": "Our pleasant conversation has ended.\n\nIf you've forgotten your name and 6 important words, even our support team won't be able to help. This is a condition of our security.\n\nIf you're sure you did everything right — please contact [support]({{support_url}})."
     },
     {
       "id": "vip_welcome",
       "message": "Your VIP status is activated! Await instructions to access your VIP brigade."
+    },
+    {
+      "id": "too_busy",
+      "message": "Sorry, our resources are under extreme load. We're upset too. Please try again later 🤷‍♂️"
+    },
+    {
+      "id": "forbid_forwards",
+      "message": "Sorry, forwarding is disabled for your security."
+    },
+    {
+      "id": "warn_wait_approval",
+      "message": "Please wait while our team reviews your picture. It may take some time. If you have any questions — please contact [support]({{support_url}})."
+    },
+    {
+      "id": "send_for_attestation",
+      "message": "Wow, what a picture! Our whole team is looking at it and will answer you soon."
+    },
+    {
+      "id": "reset_success",
+      "message": "Dialog reset"
+    },
+    {
+      "id": "repeat_conversation_finished",
+      "message": "We can't repeat the issued data because we don't store it. If you still have the brigadier name and 6 magic words — you can restore your configuration through [support]({{support_url}}).\n\nIf both the configuration and recovery words are lost, we're afraid we can't help."
+    },
+    {
+      "id": "unknown_command",
+      "message": "If you've forgotten what stage you're at, press /repeat . If you're sure you did everything right — please contact [support]({{support_url}})."
+    },
+    {
+      "id": "fail_message",
+      "message": "Something broke. Please try sending the picture again later. If you're sure you did everything right — please contact [support]({{support_url}})."
+    },
+    {
+      "id": "fatal_error",
+      "message": "It looks like something went wrong. If you're sure you did everything right — please contact [support]({{support_url}})."
     }
   ],
   "updated_at": "2026-04-07T00:00:00Z"
