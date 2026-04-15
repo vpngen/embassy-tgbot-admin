@@ -11,7 +11,7 @@
     "restore_grant": "We recognized you, here is your config!",
     "restore_configs": "*Step 3.* Connected? Then *make sure* to follow the link [http://vpn.works/](http://vpn.works/) *within 24 hours* to activate VPN and your brigade. *You will not be able to restore the brigade within 30 days if you don't visit the keydesk within 24 hours.*",
     "restore_too_early": "Too early to restore. Please try again later. Last restoration: %s\n\nRemember that restoring a deleted brigade is limited to 3 times per month",
-    "outline_download_short": "Three simpleEEE steps to a free internet! \n*Step 1.* Download and install Outline.",
+    "outline_download_short": "Three simple steps to a free internet! \n*Step 1.* Download and install Outline.",
     "outline_download_full": "To use Outline, download and install the app for your platform\nℹ️ [@vpngen](http://t.me/vpngen)"
   },
   "downloads": {
