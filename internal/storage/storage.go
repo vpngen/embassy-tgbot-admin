@@ -13,9 +13,16 @@ import (
 )
 
 // FileStore persists flows as individual JSON files in a directory.
+// It also maintains in-memory drafts that are flushed to disk on publish.
 type FileStore struct {
 	mu  sync.RWMutex
 	dir string
+
+	// In-memory drafts (not yet published to disk).
+	// Keys: "main", "main_en" for flows; "", "en" for decisions/ministry.
+	draftFlows     map[string]*model.Flow
+	draftDecisions map[string]*model.DecisionConfig
+	draftMinistry  map[string]*model.MinistryMessages
 }
 
 // NewFileStore creates a FileStore backed by the given directory.
@@ -23,7 +30,12 @@ func NewFileStore(dir string) (*FileStore, error) {
 	if err := os.MkdirAll(dir, 0o755); err != nil {
 		return nil, fmt.Errorf("create flows dir: %w", err)
 	}
-	return &FileStore{dir: dir}, nil
+	return &FileStore{
+		dir:            dir,
+		draftFlows:     make(map[string]*model.Flow),
+		draftDecisions: make(map[string]*model.DecisionConfig),
+		draftMinistry:  make(map[string]*model.MinistryMessages),
+	}, nil
 }
 
 // langSuffix returns the file-name suffix for the given language.
@@ -235,4 +247,163 @@ func (fs *FileStore) SaveMinistryMessages(cfg *model.MinistryMessages, lang stri
 	}
 
 	return nil
+}
+
+// ---------------------------------------------------------------------------
+// Draft layer: in-memory staging before publish.
+// ---------------------------------------------------------------------------
+
+// SaveFlowDraft stages a flow edit in memory without writing to disk.
+func (fs *FileStore) SaveFlowDraft(flow *model.Flow, lang string) {
+	fs.mu.Lock()
+	defer fs.mu.Unlock()
+
+	flow.UpdatedAt = time.Now().UTC()
+	key := flow.ID + langSuffix(lang)
+	fs.draftFlows[key] = flow
+}
+
+// GetFlowDraft returns the draft for a flow, or nil if none exists.
+func (fs *FileStore) GetFlowDraft(id, lang string) *model.Flow {
+	fs.mu.RLock()
+	defer fs.mu.RUnlock()
+
+	return fs.draftFlows[id+langSuffix(lang)]
+}
+
+// SaveDecisionsDraft stages a decisions edit in memory.
+func (fs *FileStore) SaveDecisionsDraft(cfg *model.DecisionConfig, lang string) {
+	fs.mu.Lock()
+	defer fs.mu.Unlock()
+
+	cfg.UpdatedAt = time.Now().UTC()
+	fs.draftDecisions[lang] = cfg
+}
+
+// GetDecisionsDraft returns the draft for decisions, or nil if none exists.
+func (fs *FileStore) GetDecisionsDraft(lang string) *model.DecisionConfig {
+	fs.mu.RLock()
+	defer fs.mu.RUnlock()
+
+	return fs.draftDecisions[lang]
+}
+
+// SaveMinistryDraft stages a ministry messages edit in memory.
+func (fs *FileStore) SaveMinistryDraft(cfg *model.MinistryMessages, lang string) {
+	fs.mu.Lock()
+	defer fs.mu.Unlock()
+
+	cfg.UpdatedAt = time.Now().UTC()
+	fs.draftMinistry[lang] = cfg
+}
+
+// GetMinistryDraft returns the draft for ministry messages, or nil if none exists.
+func (fs *FileStore) GetMinistryDraft(lang string) *model.MinistryMessages {
+	fs.mu.RLock()
+	defer fs.mu.RUnlock()
+
+	return fs.draftMinistry[lang]
+}
+
+// DraftItem describes a single pending draft change.
+type DraftItem struct {
+	Kind      string    `json:"kind"` // "flow", "decisions", "ministry"
+	ID        string    `json:"id"`   // flow ID, or "decisions" / "ministry"
+	Lang      string    `json:"lang"` // "ru" or "en"
+	UpdatedAt time.Time `json:"updated_at"`
+}
+
+// PendingDrafts returns a summary of all staged changes.
+func (fs *FileStore) PendingDrafts() []DraftItem {
+	fs.mu.RLock()
+	defer fs.mu.RUnlock()
+
+	var items []DraftItem
+	for key, f := range fs.draftFlows {
+		id := key
+		lang := "ru"
+		if strings.HasSuffix(key, "_en") {
+			id = strings.TrimSuffix(key, "_en")
+			lang = "en"
+		}
+		items = append(items, DraftItem{Kind: "flow", ID: id, Lang: lang, UpdatedAt: f.UpdatedAt})
+	}
+	for lang, d := range fs.draftDecisions {
+		l := "ru"
+		if lang == "en" {
+			l = "en"
+		}
+		items = append(items, DraftItem{Kind: "decisions", ID: "decisions", Lang: l, UpdatedAt: d.UpdatedAt})
+	}
+	for lang, m := range fs.draftMinistry {
+		l := "ru"
+		if lang == "en" {
+			l = "en"
+		}
+		items = append(items, DraftItem{Kind: "ministry", ID: "ministry", Lang: l, UpdatedAt: m.UpdatedAt})
+	}
+	return items
+}
+
+// PublishAll flushes all pending drafts to disk. Returns the list of files written.
+func (fs *FileStore) PublishAll() ([]string, error) {
+	fs.mu.Lock()
+	defer fs.mu.Unlock()
+
+	var files []string
+
+	for key, flow := range fs.draftFlows {
+		data, err := json.MarshalIndent(flow, "", "  ")
+		if err != nil {
+			return files, fmt.Errorf("marshal flow %s: %w", key, err)
+		}
+		path := filepath.Join(fs.dir, key+".json")
+		if err := os.WriteFile(path, data, 0o644); err != nil {
+			return files, fmt.Errorf("write flow %s: %w", key, err)
+		}
+		files = append(files, key+".json")
+	}
+
+	for lang, cfg := range fs.draftDecisions {
+		data, err := json.MarshalIndent(cfg, "", "  ")
+		if err != nil {
+			return files, fmt.Errorf("marshal decisions: %w", err)
+		}
+		name := "decisions" + langSuffix(lang) + ".json"
+		path := filepath.Join(fs.dir, name)
+		if err := os.WriteFile(path, data, 0o644); err != nil {
+			return files, fmt.Errorf("write decisions: %w", err)
+		}
+		files = append(files, name)
+	}
+
+	for lang, cfg := range fs.draftMinistry {
+		data, err := json.MarshalIndent(cfg, "", "  ")
+		if err != nil {
+			return files, fmt.Errorf("marshal ministry: %w", err)
+		}
+		name := "ministry" + langSuffix(lang) + ".json"
+		path := filepath.Join(fs.dir, name)
+		if err := os.WriteFile(path, data, 0o644); err != nil {
+			return files, fmt.Errorf("write ministry: %w", err)
+		}
+		files = append(files, name)
+	}
+
+	// Clear all drafts after successful publish.
+	fs.draftFlows = make(map[string]*model.Flow)
+	fs.draftDecisions = make(map[string]*model.DecisionConfig)
+	fs.draftMinistry = make(map[string]*model.MinistryMessages)
+
+	return files, nil
+}
+
+// DiscardDrafts clears all pending drafts without writing to disk.
+func (fs *FileStore) DiscardDrafts() {
+	fs.mu.Lock()
+	defer fs.mu.Unlock()
+
+	fs.draftFlows = make(map[string]*model.Flow)
+	fs.draftDecisions = make(map[string]*model.DecisionConfig)
+	fs.draftMinistry = make(map[string]*model.MinistryMessages)
 }

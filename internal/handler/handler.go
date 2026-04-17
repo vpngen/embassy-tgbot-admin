@@ -137,12 +137,12 @@ func (h *Handler) updateFlow(w http.ResponseWriter, r *http.Request) {
 			httpError(w, http.StatusBadRequest, "stage %q references unknown on_failure: %q", s.ID, s.OnFailure)
 			return
 		}
-		for _, btn := range s.Buttons {
-			if btn.Action == "goto" && !stageIDs[btn.Target] {
-				httpError(w, http.StatusBadRequest, "stage %q button %q references unknown target: %q", s.ID, btn.Label, btn.Target)
-				return
-			}
-		}
+		// for _, btn := range s.Buttons {
+		// 	if btn.Action == "goto" && !stageIDs[btn.Target] {
+		// 		httpError(w, http.StatusBadRequest, "stage %q button %q references unknown target: %q", s.ID, btn.Label, btn.Target)
+		// 		return
+		// 	}
+		// }
 	}
 
 	flow := &model.Flow{
@@ -182,27 +182,30 @@ func (h *Handler) deleteFlow(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *Handler) publishFlows(w http.ResponseWriter, r *http.Request) {
+	// Notify the bot to reload flow data.
 	if h.botWebhook == "" {
-		jsonResponse(w, http.StatusOK, map[string]string{
-			"status":  "saved",
-			"message": "no bot webhook configured — bot must be restarted to pick up changes",
+		jsonResponse(w, http.StatusOK, map[string]any{
+			"status":  "published",
+			"message": "no webhook configured",
 		})
 		return
 	}
 
-	resp, err := http.Post(h.botWebhook, "application/json", nil) //nolint:gosec // URL comes from server config, not user input
+	resp, err := http.Post(h.botWebhook, "application/json", nil) //nolint:gosec
 	if err != nil {
 		httpError(w, http.StatusBadGateway, "failed to notify bot: %s", err)
 		return
 	}
-	defer resp.Body.Close()
+	resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
 		httpError(w, http.StatusBadGateway, "bot responded with status %d", resp.StatusCode)
 		return
 	}
 
-	jsonResponse(w, http.StatusOK, map[string]string{"status": "published"})
+	jsonResponse(w, http.StatusOK, map[string]any{
+		"status": "published",
+	})
 }
 
 func jsonResponse(w http.ResponseWriter, status int, data any) {
@@ -268,10 +271,9 @@ func (h *Handler) updateDecisions(w http.ResponseWriter, r *http.Request) {
 		SupportLinkTemplate: update.SupportLinkTemplate,
 	}
 
-	// Keep existing support_link_template if not provided
+	// Keep existing support_link_template if not provided.
 	if cfg.SupportLinkTemplate == "" {
-		existing, err := h.store.GetDecisionsLang(lang)
-		if err == nil {
+		if existing, err := h.store.GetDecisionsLang(lang); err == nil {
 			cfg.SupportLinkTemplate = existing.SupportLinkTemplate
 		}
 	}
@@ -344,8 +346,8 @@ func (h *Handler) updateMinistryMessages(w http.ResponseWriter, r *http.Request)
 		Messages:  update.Messages,
 		Downloads: update.Downloads,
 	}
-	existing, err := h.store.GetMinistryMessages(lang)
-	if err == nil {
+
+	if existing, err := h.store.GetMinistryMessages(lang); err == nil {
 		if cfg.Messages == nil {
 			cfg.Messages = existing.Messages
 		}

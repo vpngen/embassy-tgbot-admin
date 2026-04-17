@@ -1,6 +1,7 @@
 package auth
 
 import (
+	"context"
 	"crypto/rand"
 	"encoding/hex"
 	"encoding/json"
@@ -14,6 +15,17 @@ import (
 
 	"github.com/golang-jwt/jwt/v5"
 	"golang.org/x/crypto/bcrypt"
+)
+
+type contextKey string
+
+const (
+	// AuthTypeKey is the context key holding the authentication method used.
+	AuthTypeKey contextKey = "auth_type"
+	// AuthTypeAPIKey means the request was authenticated via X-API-Key (bot/service).
+	AuthTypeAPIKey = "api-key"
+	// AuthTypeJWT means the request was authenticated via JWT Bearer token (admin UI).
+	AuthTypeJWT = "jwt"
 )
 
 // User represents a stored admin user.
@@ -166,7 +178,8 @@ func (a *Auth) Middleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		// Check API key first (service-to-service).
 		if a.apiKey != "" && r.Header.Get("X-API-Key") == a.apiKey {
-			next.ServeHTTP(w, r)
+			ctx := context.WithValue(r.Context(), AuthTypeKey, AuthTypeAPIKey)
+			next.ServeHTTP(w, r.WithContext(ctx))
 			return
 		}
 
@@ -183,7 +196,8 @@ func (a *Auth) Middleware(next http.Handler) http.Handler {
 			return
 		}
 
-		next.ServeHTTP(w, r)
+		ctx := context.WithValue(r.Context(), AuthTypeKey, AuthTypeJWT)
+		next.ServeHTTP(w, r.WithContext(ctx))
 	})
 }
 
