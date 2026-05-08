@@ -14,17 +14,17 @@
         {
           "label": "Куплю VIP-бригаду",
           "action": "call",
-          "target": "vip_redirect"
-        },
-        {
-          "label": "Задать вопрос",
-          "action": "url",
-          "target": "{{support_url}}"
+          "target": "vip_get_urls"
         },
         {
           "label": "Восстановлю бригаду",
           "action": "goto",
           "target": "restore_start"
+        },
+        {
+          "label": "Задать вопрос",
+          "action": "url",
+          "target": "{{support_url}}"
         }
       ]
     },
@@ -57,6 +57,11 @@
           "label": "Задать вопрос",
           "action": "url",
           "target": "{{support_url}}"
+        },
+        {
+          "label": "Назад",
+          "action": "goto",
+          "target": "welcome"
         }
       ]
     },
@@ -73,9 +78,9 @@
           "target": "welcome"
         },
         {
-          "label": "Задать вопрос",
-          "action": "url",
-          "target": "{{support_url}}"
+          "label": "Назад",
+          "action": "goto",
+          "target": "restore_start"
         }
       ]
     },
@@ -114,9 +119,9 @@
           "target": "welcome"
         },
         {
-          "label": "Задать вопрос",
-          "action": "url",
-          "target": "{{support_url}}"
+          "label": "Назад",
+          "action": "goto",
+          "target": "welcome"
         }
       ]
     },
@@ -128,6 +133,11 @@
           "label": "Попробовать ещё раз",
           "action": "goto",
           "target": "restore_name"
+        },
+        {
+          "label": "Хочу бригаду",
+          "action": "goto",
+          "target": "captcha"
         },
         {
           "label": "Хочу VIP бригаду",
@@ -145,23 +155,6 @@
       "id": "restore_grant",
       "message": "Мы узнали тебя, держи свой конфиг!",
       "action": "send_restore_config"
-    },
-    {
-      "id": "vip",
-      "message": "Ты почти VIP-бригадир с максимальной защитой и скоростью! Переходи в бот для покупки VIP-бригады — всё быстро и без лишних шагов.",
-      "action": "vip_redirect",
-      "buttons": [
-        {
-          "label": "Перейти в VIP-бот",
-          "action": "url",
-          "target": "{{vip_bot_url}}"
-        },
-        {
-          "label": "Передумал(а)",
-          "action": "goto",
-          "target": "welcome"
-        }
-      ]
     },
     {
       "id": "conversation_finished",
@@ -208,5 +201,5 @@
       "message": "Похоже что-то пошло не так. Если ты уверен(-а), что все сделал(-а) правильно — напиши пожалуйста в [поддержку]({{support_url}})."
     }
   ],
-  "updated_at": "2026-04-06T00:00:00Z"
+  "updated_at": "2026-04-28T00:00:00Z"
 }

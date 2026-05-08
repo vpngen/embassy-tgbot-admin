@@ -1,0 +1,27 @@
+{
+  "id": "vip",
+  "name": "VIP Flow (English)",
+  "stages": [
+    {
+      "id": "vip_get_urls",
+      "message": "Choose your VIP brigade plan:",
+      "buttons": [
+        {
+          "label": "Monthly",
+          "action": "url",
+          "target": "https://t.me/tribute/app?startapp=sTjn"
+        },
+        {
+          "label": "Yearly",
+          "action": "url",
+          "target": "https://t.me/tribute/app?startapp=sTjo"
+        }
+      ]
+    },
+    {
+      "id": "vip_already_active",
+      "message": "You already have an active VIP brigade."
+    }
+  ],
+  "updated_at": "2026-04-28T00:00:00Z"
+}

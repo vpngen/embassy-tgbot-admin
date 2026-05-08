@@ -1,0 +1,49 @@
+{
+  "id": "vip",
+  "name": "VIP Flow",
+  "stages": [
+    {
+      "id": "vip_get_urls",
+      "message": "Выберите вариант VIP-бригады:",
+      "buttons": [
+        {
+          "label": "На месяц",
+          "action": "call",
+          "target": "vip_month"
+        },
+        {
+          "label": "На год",
+          "action": "call",
+          "target": "vip_year"
+        }
+      ]
+    },
+    {
+      "id": "vip_pay_month",
+      "message": "Отлично! Оплатите подписку на месяц по кнопке ниже:",
+      "buttons": [
+        {
+          "label": "Оплатить",
+          "action": "url",
+          "target": "https://t.me/tribute/app?startapp=sTjn"
+        }
+      ]
+    },
+    {
+      "id": "vip_pay_year",
+      "message": "Отлично! Оплатите подписку на год по кнопке ниже:",
+      "buttons": [
+        {
+          "label": "Оплатить",
+          "action": "url",
+          "target": "https://t.me/tribute/app?startapp=sTjo"
+        }
+      ]
+    },
+    {
+      "id": "vip_already_active",
+      "message": "У вас уже есть активная VIP-бригада."
+    }
+  ],
+  "updated_at": "2026-04-28T00:00:00Z"
+}

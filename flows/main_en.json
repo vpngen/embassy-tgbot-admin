@@ -14,17 +14,17 @@
         {
           "label": "Buy VIP brigade",
           "action": "call",
-          "target": "vip_redirect"
-        },
-        {
-          "label": "Ask a question",
-          "action": "url",
-          "target": "{{support_url}}"
+          "target": "vip_get_urls"
         },
         {
           "label": "Restore my brigade",
           "action": "goto",
           "target": "restore_start"
+        },
+        {
+          "label": "Ask a question",
+          "action": "url",
+          "target": "{{support_url}}"
         }
       ]
     },
@@ -57,6 +57,11 @@
           "label": "Ask a question",
           "action": "url",
           "target": "{{support_url}}"
+        },
+        {
+          "label": "Go back",
+          "action": "goto",
+          "target": "welcome"
         }
       ]
     },
@@ -73,9 +78,9 @@
           "target": "welcome"
         },
         {
-          "label": "Ask a question",
-          "action": "url",
-          "target": "{{support_url}}"
+          "label": "Go back",
+          "action": "goto",
+          "target": "restore_start"
         }
       ]
     },
@@ -114,9 +119,9 @@
           "target": "welcome"
         },
         {
-          "label": "Ask a question",
-          "action": "url",
-          "target": "{{support_url}}"
+          "label": "Go back",
+          "action": "goto",
+          "target": "welcome"
         }
       ]
     },
@@ -128,6 +133,11 @@
           "label": "Try again",
           "action": "goto",
           "target": "restore_name"
+        },
+        {
+          "label": "I want a brigade",
+          "action": "goto",
+          "target": "captcha"
         },
         {
           "label": "I want a VIP brigade",
@@ -145,23 +155,6 @@
       "id": "restore_grant",
       "message": "We recognized you — here's your config!",
       "action": "send_restore_config"
-    },
-    {
-      "id": "vip",
-      "message": "You're almost a VIP brigadier with maximum protection and speed! Go to the bot to purchase a VIP brigade — it's quick and hassle-free.",
-      "action": "vip_redirect",
-      "buttons": [
-        {
-          "label": "Go to VIP bot",
-          "action": "url",
-          "target": "{{vip_bot_url}}"
-        },
-        {
-          "label": "Changed my mind",
-          "action": "goto",
-          "target": "welcome"
-        }
-      ]
     },
     {
       "id": "conversation_finished",
@@ -208,5 +201,5 @@
       "message": "It looks like something went wrong. If you're sure you did everything right — please contact [support]({{support_url}})."
     }
   ],
-  "updated_at": "2026-04-07T00:00:00Z"
+  "updated_at": "2026-04-28T00:00:00Z"
 }
