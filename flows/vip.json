@@ -8,35 +8,29 @@
       "buttons": [
         {
           "label": "На месяц",
-          "action": "call",
-          "target": "vip_month"
+          "action": "url",
+          "target": "https://t.me/tribute/app?startapp=sTjn"
         },
         {
           "label": "На год",
-          "action": "call",
-          "target": "vip_year"
-        }
-      ]
-    },
-    {
-      "id": "vip_pay_month",
-      "message": "Отлично! Оплатите подписку на месяц по кнопке ниже:",
-      "buttons": [
-        {
-          "label": "Оплатить",
-          "action": "url",
-          "target": "https://t.me/tribute/app?startapp=sTjn"
-        }
-      ]
-    },
-    {
-      "id": "vip_pay_year",
-      "message": "Отлично! Оплатите подписку на год по кнопке ниже:",
-      "buttons": [
-        {
-          "label": "Оплатить",
           "action": "url",
           "target": "https://t.me/tribute/app?startapp=sTjo"
+        }
+      ]
+    },
+    {
+      "id": "vip_redirect",
+      "message": "Ты почти VIP-бригадир с максимальной защитой и скоростью! Переходи в бот для покупки VIP-бригады — всё быстро и без лишних шагов.",
+      "buttons": [
+        {
+          "label": "Перейти в VIP-бот",
+          "action": "url",
+          "target": "https://t.me/vipgenbot"
+        },
+        {
+          "label": "Передумал",
+          "action": "goto",
+          "target": "welcome"
         }
       ]
     },

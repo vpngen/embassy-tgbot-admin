@@ -18,6 +18,22 @@
         }
       ]
     },
+       {
+      "id": "vip_redirect",
+      "message": "You're almost a VIP brigade member with maximum protection and speed! Go to the bot to purchase the VIP brigade — everything is quick and without unnecessary steps.",
+      "buttons": [
+        {
+          "label": "Go to VIP Bot",
+          "action": "url",
+          "target": "https://t.me/vipgenbot"
+        },
+        {
+          "label": "Changed my mind",
+          "action": "goto",
+          "target": "welcome"
+        }
+      ]
+    },
     {
       "id": "vip_already_active",
       "message": "You already have an active VIP brigade."
