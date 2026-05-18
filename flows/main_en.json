@@ -22,9 +22,35 @@
           "target": "restore_start"
         },
         {
+          "label": "Questions",
+          "action": "goto",
+          "target": "questions"
+        },
+        {
           "label": "Ask a question",
           "action": "url",
           "target": "{{support_url}}"
+        }
+      ]
+    },
+    {
+      "id": "questions",
+      "message": "Choose a question:",
+      "buttons": [
+        {
+          "label": "1",
+          "action": "goto",
+          "target": "question_1"
+        },
+        {
+          "label": "2",
+          "action": "goto",
+          "target": "question_2"
+        },
+        {
+          "label": "← Back",
+          "action": "goto",
+          "target": "welcome"
         }
       ]
     },
@@ -68,9 +94,6 @@
     {
       "id": "restore_name",
       "message": "To restore your config, please type the brigadier name. That is, an adjective and a laureate's surname, for example \"Веселый Эйнштейн\" or \"Потрясающая Кюри\".",
-      "input": "text",
-      "on_success": "restore_words",
-      "on_failure": "restore_name_fail",
       "buttons": [
         {
           "label": "I want a VIP brigade",
@@ -82,7 +105,10 @@
           "action": "goto",
           "target": "restore_start"
         }
-      ]
+      ],
+      "input": "text",
+      "on_success": "restore_words",
+      "on_failure": "restore_name_fail"
     },
     {
       "id": "restore_name_fail",
@@ -103,10 +129,6 @@
     {
       "id": "restore_words",
       "message": "Great, now please tell us your 6 magic words.",
-      "input": "text",
-      "on_success": "restore_grant",
-      "on_failure": "restore_words_fail",
-      "action": "verify_restore_words",
       "buttons": [
         {
           "label": "Try again",
@@ -123,7 +145,11 @@
           "action": "goto",
           "target": "welcome"
         }
-      ]
+      ],
+      "input": "text",
+      "on_success": "restore_grant",
+      "on_failure": "restore_words_fail",
+      "action": "verify_restore_words"
     },
     {
       "id": "restore_words_fail",
@@ -199,7 +225,18 @@
     {
       "id": "fatal_error",
       "message": "It looks like something went wrong. If you're sure you did everything right — please contact [support]({{support_url}})."
+    },
+    {
+      "id": "question_2",
+      "message": "asdfadsf\nasdfasdf\nasdfasdf\nasdfafasdf",
+      "buttons": [
+        {
+          "label": "Q3",
+          "action": "goto",
+          "target": "question_3"
+        }
+      ]
     }
   ],
-  "updated_at": "2026-04-28T00:00:00Z"
+  "updated_at": "2026-05-18T11:01:27.579054Z"
 }

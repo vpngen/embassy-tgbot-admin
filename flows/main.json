@@ -22,9 +22,35 @@
           "target": "restore_start"
         },
         {
+          "label": "Вопросы",
+          "action": "goto",
+          "target": "questions"
+        },
+        {
           "label": "Задать вопрос",
           "action": "url",
           "target": "{{support_url}}"
+        }
+      ]
+    },
+    {
+      "id": "questions",
+      "message": "Выбери вопрос:",
+      "buttons": [
+        {
+          "label": "1",
+          "action": "goto",
+          "target": "question_1"
+        },
+        {
+          "label": "2",
+          "action": "goto",
+          "target": "question_2"
+        },
+        {
+          "label": "← Назад",
+          "action": "goto",
+          "target": "welcome"
         }
       ]
     },
@@ -68,9 +94,6 @@
     {
       "id": "restore_name",
       "message": "Чтобы восстановить свой конфиг, напиши пожалуйста имя бригадира. Т.е. прилагательное и фамилию лауреата, например \"Веселый Эйнштейн\" или \"Потрясающая Кюри\".",
-      "input": "text",
-      "on_success": "restore_words",
-      "on_failure": "restore_name_fail",
       "buttons": [
         {
           "label": "Хочу VIP бригаду",
@@ -82,7 +105,10 @@
           "action": "goto",
           "target": "restore_start"
         }
-      ]
+      ],
+      "input": "text",
+      "on_success": "restore_words",
+      "on_failure": "restore_name_fail"
     },
     {
       "id": "restore_name_fail",
@@ -103,10 +129,6 @@
     {
       "id": "restore_words",
       "message": "Супер, а теперь назови пожалуйста 6 волшебных слов.",
-      "input": "text",
-      "on_success": "restore_grant",
-      "on_failure": "restore_words_fail",
-      "action": "verify_restore_words",
       "buttons": [
         {
           "label": "Попробовать ещё раз",
@@ -123,7 +145,11 @@
           "action": "goto",
           "target": "welcome"
         }
-      ]
+      ],
+      "input": "text",
+      "on_success": "restore_grant",
+      "on_failure": "restore_words_fail",
+      "action": "verify_restore_words"
     },
     {
       "id": "restore_words_fail",
@@ -199,7 +225,18 @@
     {
       "id": "fatal_error",
       "message": "Похоже что-то пошло не так. Если ты уверен(-а), что все сделал(-а) правильно — напиши пожалуйста в [поддержку]({{support_url}})."
+    },
+    {
+      "id": "question_2",
+      "message": "adsfasdfasd\nasdfasdfa\nasdfasdf",
+      "buttons": [
+        {
+          "label": "Q3",
+          "action": "goto",
+          "target": "question_3"
+        }
+      ]
     }
   ],
-  "updated_at": "2026-04-28T00:00:00Z"
+  "updated_at": "2026-05-18T11:01:05.478287Z"
 }
