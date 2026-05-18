@@ -4,7 +4,7 @@
   "stages": [
     {
       "id": "welcome",
-      "message": "🌐 VPN Generator – to stay connected with loved ones even when everything around is being shut down.\n\nIMPORTANT: here you get an entire server. It's a valuable and limited resource, so there are simple rules:\n\n• Start sharing VPN keys within 24 hours.\n• From day 8 after registration, have at least 10 active users.\n\nOr you can get a VIP brigade with higher speed and no waiting.\n\nPress the button below ↓",
+      "message": "🌐 *VPN Generator*– to stay connected with loved ones even when everything around is being shut down.\n\nIMPORTANT: here you get an entire server. It's a valuable and limited resource, so there are simple rules:\n\n• Start sharing VPN keys within 24 hours.\n• From day 8 after registration, have at least 10 active users.\n\nOr you can get a VIP brigade with higher speed and no waiting.\n\nPress the button below ↓",
       "buttons": [
         {
           "label": "I want a brigade",
@@ -22,14 +22,14 @@
           "target": "restore_start"
         },
         {
-          "label": "Questions",
-          "action": "goto",
-          "target": "questions"
-        },
-        {
           "label": "Ask a question",
           "action": "url",
           "target": "{{support_url}}"
+        },
+        {
+          "label": "Questions",
+          "action": "goto",
+          "target": "questions"
         }
       ]
     },
@@ -238,5 +238,5 @@
       ]
     }
   ],
-  "updated_at": "2026-05-18T11:01:27.579054Z"
+  "updated_at": "2026-05-18T13:20:21.292801Z"
 }
