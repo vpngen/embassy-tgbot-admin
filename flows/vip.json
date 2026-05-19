@@ -1,0 +1,43 @@
+{
+  "id": "vip",
+  "name": "VIP Flow",
+  "stages": [
+    {
+      "id": "vip_get_urls",
+      "message": "Выберите вариант VIP-бригады:",
+      "buttons": [
+        {
+          "label": "На месяц",
+          "action": "url",
+          "target": "https://t.me/tribute/app?startapp=sTjn"
+        },
+        {
+          "label": "На год",
+          "action": "url",
+          "target": "https://t.me/tribute/app?startapp=sTjo"
+        }
+      ]
+    },
+    {
+      "id": "vip_redirect",
+      "message": "Ты почти VIP-бригадир с максимальной защитой и скоростью! Переходи в бот для покупки VIP-бригады — всё быстро и без лишних шагов.",
+      "buttons": [
+        {
+          "label": "Перейти в VIP-бот",
+          "action": "url",
+          "target": "https://t.me/vipgenbot"
+        },
+        {
+          "label": "Передумал",
+          "action": "goto",
+          "target": "welcome"
+        }
+      ]
+    },
+    {
+      "id": "vip_already_active",
+      "message": "У вас уже есть активная VIP-бригада."
+    }
+  ],
+  "updated_at": "2026-04-28T00:00:00Z"
+}

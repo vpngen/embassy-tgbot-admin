@@ -4,7 +4,7 @@
   "stages": [
     {
       "id": "welcome",
-      "message": "🌐 VPN Generator – to stay connected with loved ones even when everything around is being shut down.\n\nIMPORTANT: here you get an entire server. It's a valuable and limited resource, so there are simple rules:\n\n• Start sharing VPN keys within 24 hours.\n• From day 8 after registration, have at least 10 active users.\n\nOr you can get a VIP brigade with higher speed and no waiting.\n\nPress the button below ↓",
+      "message": "🌐 *VPN Generator*– to stay connected with loved ones even when everything around is being shut down.\n\nIMPORTANT: here you get an entire server. It's a valuable and limited resource, so there are simple rules:\n\n• Start sharing VPN keys within 24 hours.\n• From day 8 after registration, have at least 10 active users.\n\nOr you can get a VIP brigade with higher speed and no waiting.\n\nPress the button below ↓",
       "buttons": [
         {
           "label": "I want a brigade",
@@ -14,7 +14,12 @@
         {
           "label": "Buy VIP brigade",
           "action": "call",
-          "target": "vip_redirect"
+          "target": "vip_get_urls"
+        },
+        {
+          "label": "Restore my brigade",
+          "action": "goto",
+          "target": "restore_start"
         },
         {
           "label": "Ask a question",
@@ -22,9 +27,45 @@
           "target": "{{support_url}}"
         },
         {
-          "label": "Restore my brigade",
+          "label": "Questions",
           "action": "goto",
-          "target": "restore_start"
+          "target": "questions"
+        }
+      ]
+    },
+    {
+      "id": "FAQ",
+      "message": "Here you’ll find the most common questions about *brigades and VIP brigades*. And don’t worry - detailed instructions and support are also available to you (and after upgrading to VIP, you’ll also get VIP support 🙂)\n\n1. What’s the difference between free brigades and VIP?\n2. How do I purchase and connect a VIP brigade?\n3. How do I add a user to a brigade?\n4. What is a VIP key and how is it different from a regular one?\n5. Is it safe to use a brigade?",
+      "buttons": [
+        {
+          "label": "1",
+          "action": "goto",
+          "target": "question_1"
+        },
+        {
+          "label": "2",
+          "action": "goto",
+          "target": "question_2"
+        },
+        {
+          "label": "3",
+          "action": "goto",
+          "target": "question_3"
+        },
+        {
+          "label": "4",
+          "action": "goto",
+          "target": "question_4"
+        },
+        {
+          "label": "5",
+          "action": "goto",
+          "target": "question_5"
+        },
+        {
+          "label": "← Back",
+          "action": "goto",
+          "target": "welcome"
         }
       ]
     },
@@ -57,15 +98,17 @@
           "label": "Ask a question",
           "action": "url",
           "target": "{{support_url}}"
+        },
+        {
+          "label": "Go back",
+          "action": "goto",
+          "target": "welcome"
         }
       ]
     },
     {
       "id": "restore_name",
       "message": "To restore your config, please type the brigadier name. That is, an adjective and a laureate's surname, for example \"Веселый Эйнштейн\" or \"Потрясающая Кюри\".",
-      "input": "text",
-      "on_success": "restore_words",
-      "on_failure": "restore_name_fail",
       "buttons": [
         {
           "label": "I want a VIP brigade",
@@ -73,11 +116,14 @@
           "target": "welcome"
         },
         {
-          "label": "Ask a question",
-          "action": "url",
-          "target": "{{support_url}}"
+          "label": "Go back",
+          "action": "goto",
+          "target": "restore_start"
         }
-      ]
+      ],
+      "input": "text",
+      "on_success": "restore_words",
+      "on_failure": "restore_name_fail"
     },
     {
       "id": "restore_name_fail",
@@ -98,10 +144,6 @@
     {
       "id": "restore_words",
       "message": "Great, now please tell us your 6 magic words.",
-      "input": "text",
-      "on_success": "restore_grant",
-      "on_failure": "restore_words_fail",
-      "action": "verify_restore_words",
       "buttons": [
         {
           "label": "Try again",
@@ -114,11 +156,15 @@
           "target": "welcome"
         },
         {
-          "label": "Ask a question",
-          "action": "url",
-          "target": "{{support_url}}"
+          "label": "Go back",
+          "action": "goto",
+          "target": "welcome"
         }
-      ]
+      ],
+      "input": "text",
+      "on_success": "restore_grant",
+      "on_failure": "restore_words_fail",
+      "action": "verify_restore_words"
     },
     {
       "id": "restore_words_fail",
@@ -128,6 +174,11 @@
           "label": "Try again",
           "action": "goto",
           "target": "restore_name"
+        },
+        {
+          "label": "I want a brigade",
+          "action": "goto",
+          "target": "captcha"
         },
         {
           "label": "I want a VIP brigade",
@@ -145,23 +196,6 @@
       "id": "restore_grant",
       "message": "We recognized you — here's your config!",
       "action": "send_restore_config"
-    },
-    {
-      "id": "vip",
-      "message": "You're almost a VIP brigadier with maximum protection and speed! Go to the bot to purchase a VIP brigade — it's quick and hassle-free.",
-      "action": "vip_redirect",
-      "buttons": [
-        {
-          "label": "Go to VIP bot",
-          "action": "url",
-          "target": "{{vip_bot_url}}"
-        },
-        {
-          "label": "Changed my mind",
-          "action": "goto",
-          "target": "welcome"
-        }
-      ]
     },
     {
       "id": "conversation_finished",
@@ -206,7 +240,87 @@
     {
       "id": "fatal_error",
       "message": "It looks like something went wrong. If you're sure you did everything right — please contact [support]({{support_url}})."
+    },
+    {
+      "id": "question_3",
+      "message": "3. *How do I add a user to a brigade?*\n\nAfter registering a brigade, you’ll receive a connection key and a link to the key vault - a page where you can create VPN access for friends and family.\n\nThe key vault opens only when you access it while connected to VPN using your “brigadier” key. The page is not accessible from the regular internet - which makes it extremely difficult to block.\n\nAfter that, everything is simple:\n\nPress “Add user” → a new key appears → send it to the person.\n\nThat’s it - the user can now connect to the brigade 🙂\n\nAnd don’t worry - after registration, both you and your users will get detailed instructions. It’s really pretty simple.",
+      "buttons": [
+        {
+          "label": "← Go back",
+          "action": "goto",
+          "target": "questions"
+        },
+        {
+          "label": "Main Menu",
+          "action": "goto",
+          "target": "welcome"
+        }
+      ]
+    },
+    {
+      "id": "question_1",
+      "message": "1. *What’s the difference between free brigades and VIP?*\n\nFree brigades are *not always available* - sorry, fighting censorship is hard, and resources are not unlimited. We try to maintain comfortable speeds, but the free version has speed limits. There’s also one important rule: during the first week, you need to gather *at least 10 active users. Didn’t make it - the brigade gets deleted*. Those are the project rules.\n\nA VIP brigade gives you *protection from deletion, more stable speeds, a VIP key with no speed or traffic limits, and priority support*. And of course, you’ll also get a fancy luxury key vault design - you’re VIP after all :) ",
+      "buttons": [
+        {
+          "label": "← Go back ",
+          "action": "goto",
+          "target": "questions"
+        },
+        {
+          "label": "Main Menu",
+          "action": "goto",
+          "target": "welcome"
+        }
+      ]
+    },
+    {
+      "id": "question_2",
+      "message": "2. *How do I purchase and connect a VIP brigade?*\n\nTo purchase, simply choose the subscription period - monthly or yearly - and press \"Buy”.\n\nNext, you’ll need to activate the brigade on a special page - it only takes one click. Just connect using the issued key and open the link that appears after the brigade is created.\n\nDone! Now you can start connecting users 🙂\n\nIf you have any questions - there will be instructions inside the bot, and you can always contact support.",
+      "buttons": [
+        {
+          "label": "← Go back",
+          "action": "goto",
+          "target": "questions"
+        },
+        {
+          "label": "Main Menu",
+          "action": "goto",
+          "target": "welcome"
+        }
+      ]
+    },
+    {
+      "id": "question_4",
+      "message": "4. *What is a VIP key and how is it different from a regular one?*\n\nA VIP key gives you access with *no speed or traffic limits*. It’s perfect for calls, 4K video, work, streaming, and stable everyday use.\n\nWhen purchasing a VIP brigade, you automatically receive one VIP key. Additional VIP keys can also be purchased later - for friends, family, or other users.\n\nRegular keys work with limits: up to 10 Mbps speed and 100 GB of traffic per month. This is usually enough for messaging, YouTube, and access to most websites.",
+      "buttons": [
+        {
+          "label": "← Go back",
+          "action": "goto",
+          "target": "questions"
+        },
+        {
+          "label": "Main Menu",
+          "action": "goto",
+          "target": "welcome"
+        }
+      ]
+    },
+    {
+      "id": "question_5",
+      "message": "5. *Is it safe to use a brigade?*\n\nYes - brigades are designed with security in mind. Each brigade has its own unique IP address - this helps bypass blocks more reliably and reduces the risk of restrictions.\n\nThe page used to create user keys is *additionally protected*: it can only be opened through the issued VPN key.\n\nAfter registering a brigade, you’ll also receive a 6-word recovery phrase. It can be used to restore access if you ever lose it - without requiring any personal data.",
+      "buttons": [
+        {
+          "label": "← Go back",
+          "action": "goto",
+          "target": "questions"
+        },
+        {
+          "label": "Main Menu",
+          "action": "goto",
+          "target": "welcome"
+        }
+      ]
     }
   ],
-  "updated_at": "2026-04-07T00:00:00Z"
+  "updated_at": "2026-05-18T14:31:44.342712395Z"
 }

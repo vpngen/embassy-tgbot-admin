@@ -37,6 +37,7 @@ func (h *Handler) RegisterRoutes(mux *http.ServeMux) {
 	protected.HandleFunc("PUT /api/flows/{id}", h.updateFlow)
 	protected.HandleFunc("DELETE /api/flows/{id}", h.deleteFlow)
 	protected.HandleFunc("POST /api/flows/publish", h.publishFlows)
+	protected.HandleFunc("PATCH /api/flows/{id}/stages/{stageId}/buttons/reorder", h.reorderButtons)
 
 	protected.HandleFunc("GET /api/decisions", h.getDecisions)
 	protected.HandleFunc("PUT /api/decisions", h.updateDecisions)
@@ -206,6 +207,80 @@ func (h *Handler) publishFlows(w http.ResponseWriter, r *http.Request) {
 	jsonResponse(w, http.StatusOK, map[string]any{
 		"status": "published",
 	})
+}
+
+func (h *Handler) reorderButtons(w http.ResponseWriter, r *http.Request) {
+	id := r.PathValue("id")
+	stageID := r.PathValue("stageId")
+	if id == "" || stageID == "" {
+		httpError(w, http.StatusBadRequest, "missing flow or stage id")
+		return
+	}
+
+	var body struct {
+		From int `json:"from"`
+		To   int `json:"to"`
+	}
+	if err := json.NewDecoder(r.Body).Decode(&body); err != nil {
+		httpError(w, http.StatusBadRequest, "invalid json: %s", err)
+		return
+	}
+
+	// Apply to both language files; the default (ru) result is returned.
+	var result *model.Stage
+	for _, lang := range []string{"", "en"} {
+		flow, err := h.store.GetLang(id, lang)
+		if err != nil {
+			if strings.Contains(err.Error(), "not found") {
+				continue
+			}
+			httpError(w, http.StatusInternalServerError, "failed to get flow: %s", err)
+			return
+		}
+
+		stageIdx := -1
+		for i, s := range flow.Stages {
+			if s.ID == stageID {
+				stageIdx = i
+				break
+			}
+		}
+		if stageIdx == -1 {
+			httpError(w, http.StatusNotFound, "stage %q not found in flow %q", stageID, id)
+			return
+		}
+
+		btns := flow.Stages[stageIdx].Buttons
+		if body.From < 0 || body.From >= len(btns) || body.To < 0 || body.To >= len(btns) {
+			httpError(w, http.StatusBadRequest, "button index out of range")
+			return
+		}
+
+		moved := btns[body.From]
+		rest := append(btns[:body.From:body.From], btns[body.From+1:]...)
+		reordered := make([]model.Button, 0, len(btns))
+		reordered = append(reordered, rest[:body.To]...)
+		reordered = append(reordered, moved)
+		reordered = append(reordered, rest[body.To:]...)
+		flow.Stages[stageIdx].Buttons = reordered
+
+		if err := h.store.SaveLang(flow, lang); err != nil {
+			httpError(w, http.StatusInternalServerError, "failed to save flow: %s", err)
+			return
+		}
+
+		if lang == "" {
+			s := flow.Stages[stageIdx]
+			result = &s
+		}
+	}
+
+	if result == nil {
+		httpError(w, http.StatusNotFound, "flow %q not found", id)
+		return
+	}
+
+	jsonResponse(w, http.StatusOK, result)
 }
 
 func jsonResponse(w http.ResponseWriter, status int, data any) {
