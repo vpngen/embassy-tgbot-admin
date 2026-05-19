@@ -9,12 +9,12 @@
         {
           "label": "Monthly",
           "action": "url",
-          "target": "https://t.me/tribute/app?startapp=sTjn"
+          "target": "https://t.me/tribute/app?startapp=sEtM"
         },
         {
           "label": "Yearly",
           "action": "url",
-          "target": "https://t.me/tribute/app?startapp=sTjo"
+          "target": "https://t.me/tribute/app?startapp=sEtO"
         }
       ]
     },
