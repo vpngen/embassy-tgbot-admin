@@ -27,9 +27,9 @@
           "target": "{{support_url}}"
         },
         {
-          "label": "Questions",
+          "label": "FAQ",
           "action": "goto",
-          "target": "questions"
+          "target": "FAQ"
         }
       ]
     },
@@ -248,7 +248,7 @@
         {
           "label": "← Go back",
           "action": "goto",
-          "target": "questions"
+          "target": "FAQ"
         },
         {
           "label": "Main Menu",
@@ -264,7 +264,7 @@
         {
           "label": "← Go back ",
           "action": "goto",
-          "target": "questions"
+          "target": "FAQ"
         },
         {
           "label": "Main Menu",
@@ -280,7 +280,7 @@
         {
           "label": "← Go back",
           "action": "goto",
-          "target": "questions"
+          "target": "FAQ"
         },
         {
           "label": "Main Menu",
@@ -296,7 +296,7 @@
         {
           "label": "← Go back",
           "action": "goto",
-          "target": "questions"
+          "target": "FAQ"
         },
         {
           "label": "Main Menu",
@@ -312,7 +312,7 @@
         {
           "label": "← Go back",
           "action": "goto",
-          "target": "questions"
+          "target": "FAQ"
         },
         {
           "label": "Main Menu",
