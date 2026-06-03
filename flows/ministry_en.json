@@ -12,7 +12,12 @@
     "restore_configs": "*Step 3.* Connected? Then *make sure* to follow the link [http://vpn.works/](http://vpn.works/) *within 24 hours* to activate VPN and your brigade. *You will not be able to restore the brigade within 30 days if you don't visit the keydesk within 24 hours.*",
     "restore_too_early": "Too early to restore. Please try again later. Last restoration: %s\n\nRemember that restoring a deleted brigade is limited to 3 times per month",
     "outline_download_short": "Three simple steps to a free internet! \n*Step 1.* Download and install Outline.",
-    "outline_download_full": "To use Outline, download and install the app for your platform\nℹ️ [@vpngen](http://t.me/vpngen)"
+    "outline_download_full": "To use Outline, download and install the app for your platform\nℹ️ [@vpngen](http://t.me/vpngen)",
+    "push_not_activated": "You have the key — but the brigade isn't launched yet!\n\nOpen the key cabinet and start it — takes about 30 seconds.\n\nThere's also a clear [step-by-step guide](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/) if needed.",
+    "push_low_users_1d": "Hey! Your brigade is a bit empty right now — it's a good time to share keys with friends and family. You need at least 10 active users for the brigade to keep running.\n\nHere's the [guide for you](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/)\n\nAnd here's the [guide for your users](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/) — you can just forward it.\n\nDon't want to worry about the number of users? Switch to VIP!",
+    "push_low_users_3d": "Hey! Something not working out? Looks like your brigade still doesn't have enough active users.\n\nJust a reminder — you need at least 10 active users. Here's your [brigadier guide](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/).\n\nDon't want to worry about user count? Switch to VIP — no limits, you can even use it solo with unlimited access.",
+    "push_last_chance": "Last chance — or your brigade turns into a pumpkin!\n\nAlmost a week has passed, and there are still fewer than 10 active users.\n\nYour brigade will be deleted tomorrow, so it's time to speed things up.\n\nOr switch to VIP — no limits there.",
+    "push_brigade_deleted": "Hey! Looks like you didn't reach 10 users, so the brigade was removed.\n\nSad but true — that's how it works.\n\nYou can restore the brigade and invite users again, or consider switching to VIP — no user limits there."
   },
   "downloads": {
     "outline": {
