@@ -1,40 +1,40 @@
 {
   "messages": {
-    "grant_message": "Поздравляю! Ты — бригадир! Вот полная [инструкция пользования](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/) сервисом.\nТвое кодовое имя: `%s`. Оно нужно для обращения в поддержку. Так мы поймем, что ты — это ты, не зная, что это ты \u263A.",
-    "grant_message_vip": "Поздравляем со статусом VIP-бригадира! Теперь вместе с премиум-поддержкой и защитой от удаления жизнь точно заиграет новыми красками! Вот полная [инструкция пользования](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/) сервисом.\nТвое кодовое имя: `%s`. Оно нужно для обращения в поддержку. Так мы поймем, что ты — это ты, не зная, что это ты \u263A.",
-    "person_description": "*Справка*\n\nЛауреат нобелевской премии по физике: *%s*\n_%s_\n\uD83D\uDC49 [статья на wikipedia](%s)\n\n",
-    "seed_desc": "Последний, но важный шаг. У меня есть для тебя 6 слов — их я дам. Их нужно где-то хранить — места для хранения я не дам. Эти слова + имя — *единственный способ* восстановить доступ к твоему VPN.\n\nСпрячь эти слова туда, куда ты сможешь добраться в любой непонятной ситуации, но не доберется трщ майор. Нет, не туда! Туда доберется… Лучше в хранилку паролей или еще какое-нибудь хитрое место.",
-    "words_message": "*6 важных слов:*\n`%s`",
-    "outline_access": "*Шаг 2.* Твой *личный* ключ Outline ниже. Скопируй его, открой Outline и вставь. Затем обязательно нажми кнопку «Подключить»",
     "configs_message": "*Шаг 3.* Подключился? Тогда *обязательно* перейди по ссылке [http://vpn.works/](http://vpn.works/) *в течение 24 часов*, чтобы активировать VPN и свою бригаду.",
-    "proto0_config": "На всякий случай твой *личный* ключ Reality (так называется ещё один поддерживаемый нами протокол) ниже. Используй его со специальным приложением в случае, если ничего не работает. Скопируй его и добавь в приложение, которое ты выбрал(-а) для работы с Reality (например Hiddify)",
-    "restore_grant": "Мы узнали тебя, держи свой конфиг!",
-    "restore_configs": "*Шаг 3.* Подключился? Тогда *обязательно* перейди по ссылке [http://vpn.works/](http://vpn.works/) *в течение 24 часов*, чтобы активировать VPN и свою бригаду. *Вы не сможете восстановить бригаду в течение 30 дней в случае если не зайдёте в ключницу в течение суток.*",
-    "restore_too_early": "Слишком рано для восстановления. Попробуйте позже. Последнее восстановление: %s\n\nПомни, что восстановление удалённой бригады - не более 3 раз в месяц",
-    "outline_download_short": "Осталось три простых шага до свободного интернета! \n*Шаг 1.* Скачай и установи Outline.",
+    "grant_message": "Поздравляю! Ты — бригадир! Вот полная [инструкция пользования](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/) сервисом.\nТвое кодовое имя: `%s`. Оно нужно для обращения в поддержку. Так мы поймем, что ты — это ты, не зная, что это ты ☺.",
+    "grant_message_vip": "Поздравляем со статусом VIP-бригадира! Теперь вместе с премиум-поддержкой и защитой от удаления жизнь точно заиграет новыми красками! Вот полная [инструкция пользования](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/) сервисом.\nТвое кодовое имя: `%s`. Оно нужно для обращения в поддержку. Так мы поймем, что ты — это ты, не зная, что это ты ☺.",
+    "outline_access": "*Шаг 2.* Твой *личный* ключ Outline ниже. Скопируй его, открой Outline и вставь. Затем обязательно нажми кнопку «Подключить»",
     "outline_download_full": "Для использования Outline скачай и установи приложение для своей платформы\nℹ️ [@vpngen](http://t.me/vpngen)",
-    "push_not_activated": "Ключ есть — бригады нет!\n\nзайди в ключницу и запусти её, там делов на 30 секунд!\n\nНапоминаем, что есть понятная [инструкция](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/)",
-    "push_low_users_1d": "Привет! В твоей бригаде пока пустовато — стоит подумать о том, кому раздать ключи. Нужно 10 активных пользователей!\n\nВот [инструкция для тебя](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/)\n\nА вот [инструкция для твоих пользователей](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/) — её можно просто переслать.\n\nЕсли не хочешь париться о количестве пользователей — купи VIP!",
-    "push_low_users_3d": "Привет! Что-то не получается? Кажется, в твоей бригаде всё ещё не хватает активных пользователей.\n\nНапоминаем: их должно быть 10, не меньше! Вот твоя [инструкция бригадира](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/).\n\nНе хочешь париться? Купи VIP — там никаких ограничений: можешь сидеть в одиночку на безлимитном доступе",
-    "push_last_chance": "Последний шанс, или твоя бригада превратится в тыкву! Прошла почти неделя, а 10 активных пользователей всё ещё нет.\n\nУже завтра твоя бригада удалится, так что стоит поднажать.\n\nИли купи VIP — там нет ограничений!",
-    "push_brigade_deleted": "Привет! Ты не набрал 10 пользователей, потому бригада удалилась.\n\nУвы и ах, это жизнь!\n\nТы можешь восстановить бригаду и набрать пользователей заново, или задуматься над приобретением VIP-ки"
+    "outline_download_short": "Осталось три простых шага до свободного интернета! \n*Шаг 1.* Скачай и установи Outline.",
+    "person_description": "*Справка*\n\nЛауреат нобелевской премии по физике: *%s*\n_%s_\n👉 [статья на wikipedia](%s)\n\n",
+    "proto0_config": "На всякий случай твой *личный* ключ Reality (так называется ещё один поддерживаемый нами протокол) ниже. Используй его со специальным приложением в случае, если ничего не работает. Скопируй его и добавь в приложение, которое ты выбрал(-а) для работы с Reality (например Hiddify)",
+    "push_brigade_deleted": "💀 Привет! Ты не набрал 10 пользователей, потому *бригада удалилась.*\n\n😢 Увы и ах, это жизнь!\n\n🔄 Ты можешь попробовать восстановить бригаду и набрать пользователей заново, или задуматься над [приобретением VIP](t.me/vpngeneratorstagebot?start=vip). \n\n😎 Там нет *ограничений по количеству пользователей*, а еще и *VIP-ключ без ограничений впридачу.* Ну красота же!",
+    "push_last_chance": "🎃 Последний шанс, или твоя бригада превратится в тыкву! \n\nПрошла почти неделя, а *10 активных пользователей все еще нет.* \n\n⏰ *Уже завтра твоя бригада удалится*, так что стоит поднажать. Раздай еще несколько ключей друзьям, родным и знакомым. \n\n😎 Или [купи VIP](t.me/vpngeneratorstagebot?start=vip) - там нет ограничений!",
+    "push_low_users_1d": "👀 Привет! В твоей бригаде пока пустовато - стоит подумать о том, кому раздать ключи. \n\n⚠️ *Нужно 10 активных пользователей!*\n\nВот [инструкция для тебя](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/)\n\nА вот [инструкция для твоих пользователей](https://docs.google.com/document/d/1NiT47rBcfIxn-CpzLQ8kk9MuCWBpIdr_Tra2QYXl4us/) - ее можно просто переслать.\n\n😎 Если не хочешь париться о количестве пользователей - купи [VIP](t.me/vpngeneratorstagebot?start=vip)!",
+    "push_low_users_3d": "🤔 Привет! Что-то не получается? Кажется, в твоей бригаде все еще не хватает активных пользователей.\n\n⚠️ Напоминаем: *их должно быть 10, не меньше!*\n\n Вот твоя [инструкция бригадира](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/).\n\n😎 Не хочешь париться? [Купи VIP](t.me/vpngeneratorstagebot?start=vip) - там никаких ограничений: можешь сидеть в одиночку на безлимитном доступе",
+    "push_not_activated": "😱 *Ключ есть - бригады нет!*\n\nЗайди в [ключницу](https://vpn.works) и запусти ее, там делов на 30 секунд!\n\nНапоминаем, что есть понятная [инструкция](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/)",
+    "restore_configs": "*Шаг 3.* Подключился? Тогда *обязательно* перейди по ссылке [http://vpn.works/](http://vpn.works/) *в течение 24 часов*, чтобы активировать VPN и свою бригаду. *Вы не сможете восстановить бригаду в течение 30 дней в случае если не зайдёте в ключницу в течение суток.*",
+    "restore_grant": "Мы узнали тебя, держи свой конфиг!",
+    "restore_too_early": "Слишком рано для восстановления. Попробуйте позже. Последнее восстановление: %s\n\nПомни, что восстановление удалённой бригады - не более 3 раз в месяц",
+    "seed_desc": "Последний, но важный шаг. У меня есть для тебя 6 слов — их я дам. Их нужно где-то хранить — места для хранения я не дам. Эти слова + имя — *единственный способ* восстановить доступ к твоему VPN.\n\nСпрячь эти слова туда, куда ты сможешь добраться в любой непонятной ситуации, но не доберется трщ майор. Нет, не туда! Туда доберется… Лучше в хранилку паролей или еще какое-нибудь хитрое место.",
+    "words_message": "*6 важных слов:*\n`%s`"
   },
   "downloads": {
-    "outline": {
-      "для Android": "https://play.google.com/store/apps/details?id=org.outline.android.client",
-      "для iOS": "https://itunes.apple.com/us/app/outline-app/id1356177741",
-      "для Chrome": "https://play.google.com/store/apps/details?id=org.outline.android.client",
-      "для Windows": "https://s3.amazonaws.com/outline-releases/client/windows/stable/Outline-Client.exe",
-      "для macOS": "https://itunes.apple.com/us/app/outline-app/id1356178125",
-      "для Linux": "https://s3.amazonaws.com/outline-releases/client/linux/stable/Outline-Client.AppImage"
-    },
     "amnezia": {
       "для Android": "https://play.google.com/store/apps/details?id=org.amnezia.vpn",
-      "для iOS": "https://apps.apple.com/us/app/amneziavpn/id1600529900",
+      "для Linux": "https://github.com/amnezia-vpn/amnezia-client/releases/download/4.5.3.0/AmneziaVPN_Linux_installer.tar.zip",
       "для Windows": "https://github.com/amnezia-vpn/amnezia-client/releases/download/4.5.3.0/AmneziaVPN_4.5.3.0_x64.exe",
-      "для macOS": "https://github.com/amnezia-vpn/amnezia-client/releases/download/4.5.3.0/AmneziaVPN_4.5.3.0.dmg",
-      "для Linux": "https://github.com/amnezia-vpn/amnezia-client/releases/download/4.5.3.0/AmneziaVPN_Linux_installer.tar.zip"
+      "для iOS": "https://apps.apple.com/us/app/amneziavpn/id1600529900",
+      "для macOS": "https://github.com/amnezia-vpn/amnezia-client/releases/download/4.5.3.0/AmneziaVPN_4.5.3.0.dmg"
+    },
+    "outline": {
+      "для Android": "https://play.google.com/store/apps/details?id=org.outline.android.client",
+      "для Chrome": "https://play.google.com/store/apps/details?id=org.outline.android.client",
+      "для Linux": "https://s3.amazonaws.com/outline-releases/client/linux/stable/Outline-Client.AppImage",
+      "для Windows": "https://s3.amazonaws.com/outline-releases/client/windows/stable/Outline-Client.exe",
+      "для iOS": "https://itunes.apple.com/us/app/outline-app/id1356177741",
+      "для macOS": "https://itunes.apple.com/us/app/outline-app/id1356178125"
     }
   },
-  "updated_at": "0001-01-01T00:00:00Z"
+  "updated_at": "2026-06-04T11:41:04.246297285Z"
 }

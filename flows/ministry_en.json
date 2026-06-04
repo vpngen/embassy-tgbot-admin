@@ -1,40 +1,40 @@
 {
   "messages": {
-    "grant_message": "Congratulations! You are a brigadier! Here is the full [user guide](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/).\nYour code name: `%s`. It is needed to contact support. This way we will know it's you without knowing who you are \u263A.",
-    "grant_message_vip": "Congratulations on your VIP brigadier status! With premium support and deletion protection, life will definitely take on new colors! Here is the full [user guide](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/).\nYour code name: `%s`. It is needed to contact support. This way we will know it's you without knowing who you are \u263A.",
-    "person_description": "*Reference*\n\nNobel Prize laureate in physics: *%s*\n_%s_\n\uD83D\uDC49 [Wikipedia article](%s)\n\n",
-    "seed_desc": "The last but important step. I have 6 words for you — I'll give them. You need to store them somewhere — I won't give you a place to store them. These words + name are *the only way* to restore access to your VPN.\n\nHide these words where you can reach them in any situation, but where they can't be found by unwanted parties. Better in a password manager or some other clever place.",
-    "words_message": "*6 important words:*\n`%s`",
-    "outline_access": "*Step 2.* Your *personal* Outline key is below. Copy it, open Outline and paste it. Then make sure to click \"Connect\"",
     "configs_message": "*Step 3.* Connected? Then *make sure* to follow the link [http://vpn.works/](http://vpn.works/) *within 24 hours* to activate VPN and your brigade.",
-    "proto0_config": "Just in case, your *personal* Reality key (another protocol we support) is below. Use it with a special app if nothing else works. Copy it and add it to the app you chose for Reality (e.g. Hiddify)",
-    "restore_grant": "We recognized you, here is your config!",
-    "restore_configs": "*Step 3.* Connected? Then *make sure* to follow the link [http://vpn.works/](http://vpn.works/) *within 24 hours* to activate VPN and your brigade. *You will not be able to restore the brigade within 30 days if you don't visit the keydesk within 24 hours.*",
-    "restore_too_early": "Too early to restore. Please try again later. Last restoration: %s\n\nRemember that restoring a deleted brigade is limited to 3 times per month",
-    "outline_download_short": "Three simple steps to a free internet! \n*Step 1.* Download and install Outline.",
+    "grant_message": "Congratulations! You are a brigadier! Here is the full [user guide](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/).\nYour code name: `%s`. It is needed to contact support. This way we will know it's you without knowing who you are ☺.",
+    "grant_message_vip": "Congratulations on your VIP brigadier status! With premium support and deletion protection, life will definitely take on new colors! Here is the full [user guide](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/).\nYour code name: `%s`. It is needed to contact support. This way we will know it's you without knowing who you are ☺.",
+    "outline_access": "*Step 2.* Your *personal* Outline key is below. Copy it, open Outline and paste it. Then make sure to click \"Connect\"",
     "outline_download_full": "To use Outline, download and install the app for your platform\nℹ️ [@vpngen](http://t.me/vpngen)",
-    "push_not_activated": "You have the key — but the brigade isn't launched yet!\n\nOpen the key cabinet and start it — takes about 30 seconds.\n\nThere's also a clear [step-by-step guide](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/) if needed.",
-    "push_low_users_1d": "Hey! Your brigade is a bit empty right now — it's a good time to share keys with friends and family. You need at least 10 active users for the brigade to keep running.\n\nHere's the [guide for you](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/)\n\nAnd here's the [guide for your users](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/) — you can just forward it.\n\nDon't want to worry about the number of users? Switch to VIP!",
-    "push_low_users_3d": "Hey! Something not working out? Looks like your brigade still doesn't have enough active users.\n\nJust a reminder — you need at least 10 active users. Here's your [brigadier guide](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/).\n\nDon't want to worry about user count? Switch to VIP — no limits, you can even use it solo with unlimited access.",
-    "push_last_chance": "Last chance — or your brigade turns into a pumpkin!\n\nAlmost a week has passed, and there are still fewer than 10 active users.\n\nYour brigade will be deleted tomorrow, so it's time to speed things up.\n\nOr switch to VIP — no limits there.",
-    "push_brigade_deleted": "Hey! Looks like you didn't reach 10 users, so the brigade was removed.\n\nSad but true — that's how it works.\n\nYou can restore the brigade and invite users again, or consider switching to VIP — no user limits there."
+    "outline_download_short": "Three simple steps to a free internet! \n*Step 1.* Download and install Outline.",
+    "person_description": "*Reference*\n\nNobel Prize laureate in physics: *%s*\n_%s_\n👉 [Wikipedia article](%s)\n\n",
+    "proto0_config": "Just in case, your *personal* Reality key (another protocol we support) is below. Use it with a special app if nothing else works. Copy it and add it to the app you chose for Reality (e.g. Hiddify)",
+    "push_brigade_deleted": "💀 Hey! Looks like you didn't reach 10 users, so *your brigade was deleted.* \n\n😢 Sad but true - that's how it works.\n\n🔄 You can restore the brigade and invite users again, or consider [switching to VIP]((t.me/vpngeneratorstagebot?start=vip)\n\n😎 VIP brigades have no *minimum user requirements.* Plus, you get a *VIP-key with unlimited speed and traffic included*. Sounds pretty good, doesn't it? \n\n  ",
+    "push_last_chance": "🎃 Last chance - or your brigade turns into a pumpkin!\n\nAlmost a week has passed, and there are *still fewer than 10 active users.*\n\n⏰ *Your brigade will be deleted tomorrow*, so it's time to speed things up. Hand out a few more keys to your friends, family members, and people you know. \n\n😎 Or [switch to VIP](t.me/vpngeneratorstagebot?start=vip) - no limits there.",
+    "push_low_users_1d": "👀 Hey! Your brigade is a bit empty right now - it's a good time to share keys with friends and family. \n\n⚠️ *You need at least 10 active users for the brigade to keep running.\n\nHere's the [guide for you](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/)\n\nAnd here's the [guide for your users](https://docs.google.com/document/d/1NiT47rBcfIxn-CpzLQ8kk9MuCWBpIdr_Tra2QYXl4us/) - you can just forward it.\n\n😎 Don't want to worry about the number of users? Switch to [VIP](t.me/vpngeneratorstagebot?start=vip)!",
+    "push_low_users_3d": "🤔 Hey! Something not working out? Looks like your brigade still doesn't have enough active users.\n\n⚠️ Just a reminder - *you need at least 10 active users*. \n\nHere's your [brigadier guide](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/).\n\n😎 Don't want to worry about user count? [Switch to VIP](t.me/vpngeneratorstagebot?start=vip) - no limits, you can even use it solo with unlimited access.",
+    "push_not_activated": "😱 *You have the key - but the brigade isn't launched yet!*\n\nOpen [the key cabinet](https://vpn.works) and start it - takes about 30 seconds!\n\nThere's also a clear [step-by-step guide](https://docs.google.com/document/d/12qFYFk9SQaPrg32bf-2JZYIPSax2453jE3YGOblThHk/) if needed.",
+    "restore_configs": "*Step 3.* Connected? Then *make sure* to follow the link [http://vpn.works/](http://vpn.works/) *within 24 hours* to activate VPN and your brigade. *You will not be able to restore the brigade within 30 days if you don't visit the keydesk within 24 hours.*",
+    "restore_grant": "We recognized you, here is your config!",
+    "restore_too_early": "Too early to restore. Please try again later. Last restoration: %s\n\nRemember that restoring a deleted brigade is limited to 3 times per month",
+    "seed_desc": "The last but important step. I have 6 words for you — I'll give them. You need to store them somewhere — I won't give you a place to store them. These words + name are *the only way* to restore access to your VPN.\n\nHide these words where you can reach them in any situation, but where they can't be found by unwanted parties. Better in a password manager or some other clever place.",
+    "words_message": "*6 important words:*\n`%s`"
   },
   "downloads": {
-    "outline": {
-      "for Android": "https://play.google.com/store/apps/details?id=org.outline.android.client",
-      "for iOS": "https://itunes.apple.com/us/app/outline-app/id1356177741",
-      "for Chrome": "https://play.google.com/store/apps/details?id=org.outline.android.client",
-      "for Windows": "https://s3.amazonaws.com/outline-releases/client/windows/stable/Outline-Client.exe",
-      "for macOS": "https://itunes.apple.com/us/app/outline-app/id1356178125",
-      "for Linux": "https://s3.amazonaws.com/outline-releases/client/linux/stable/Outline-Client.AppImage"
-    },
     "amnezia": {
       "for Android": "https://play.google.com/store/apps/details?id=org.amnezia.vpn",
-      "for iOS": "https://apps.apple.com/us/app/amneziavpn/id1600529900",
+      "for Linux": "https://github.com/amnezia-vpn/amnezia-client/releases/download/4.5.3.0/AmneziaVPN_Linux_installer.tar.zip",
       "for Windows": "https://github.com/amnezia-vpn/amnezia-client/releases/download/4.5.3.0/AmneziaVPN_4.5.3.0_x64.exe",
-      "for macOS": "https://github.com/amnezia-vpn/amnezia-client/releases/download/4.5.3.0/AmneziaVPN_4.5.3.0.dmg",
-      "for Linux": "https://github.com/amnezia-vpn/amnezia-client/releases/download/4.5.3.0/AmneziaVPN_Linux_installer.tar.zip"
+      "for iOS": "https://apps.apple.com/us/app/amneziavpn/id1600529900",
+      "for macOS": "https://github.com/amnezia-vpn/amnezia-client/releases/download/4.5.3.0/AmneziaVPN_4.5.3.0.dmg"
+    },
+    "outline": {
+      "for Android": "https://play.google.com/store/apps/details?id=org.outline.android.client",
+      "for Chrome": "https://play.google.com/store/apps/details?id=org.outline.android.client",
+      "for Linux": "https://s3.amazonaws.com/outline-releases/client/linux/stable/Outline-Client.AppImage",
+      "for Windows": "https://s3.amazonaws.com/outline-releases/client/windows/stable/Outline-Client.exe",
+      "for iOS": "https://itunes.apple.com/us/app/outline-app/id1356177741",
+      "for macOS": "https://itunes.apple.com/us/app/outline-app/id1356178125"
     }
   },
-  "updated_at": "0001-01-01T00:00:00Z"
+  "updated_at": "2026-06-04T11:41:11.236170315Z"
 }
