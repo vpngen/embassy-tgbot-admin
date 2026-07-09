@@ -21,6 +21,9 @@
     "restore_grant": "We recognized you, here is your config!",
     "restore_too_early": "Too early to restore. Please try again later. Last restoration: %s\n\nRemember that restoring a deleted brigade is limited to 3 times per month",
     "seed_desc": "The last but important step. I have 6 words for you — I'll give them. You need to store them somewhere — I won't give you a place to store them. These words + name are *the only way* to restore access to your VPN.\n\nHide these words where you can reach them in any situation, but where they can't be found by unwanted parties. Better in a password manager or some other clever place.",
+    "vip_upgrade_notify_1": "Congratulations on your VIP brigadier status! With premium support and deletion protection, life will definitely take on new colors! Just a reminder about the service's user guide (we're sure you already know it though)",
+    "vip_upgrade_notify_2": "Keep in mind that access to the VIP key cabinet will use the same brigadier name and 6 words you already have - no need to get anything new.",
+    "vip_upgrade_notify_3": "And last but not least — a VIP key for your brigade. No limits on speed or traffic: perfect for 4K video, streaming, gaming, and work.\n\nThe key will show up both in this bot and inside the key cabinet - you can use it yourself or hand it to a brigade user.\n\nIf you get more users, you can buy extra VIP keys to keep in reserve.",
     "words_message": "*6 important words:*\n`%s`"
   },
   "downloads": {
