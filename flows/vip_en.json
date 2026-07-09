@@ -18,7 +18,7 @@
         }
       ]
     },
-       {
+    {
       "id": "vip_redirect",
       "message": "You're almost a VIP brigade member with maximum protection and speed! Go to the bot to purchase the VIP brigade — everything is quick and without unnecessary steps.",
       "buttons": [
@@ -37,7 +37,69 @@
     {
       "id": "vip_already_active",
       "message": "You already have an active VIP brigade."
+    },
+    {
+      "id": "vip_quiz",
+      "message": "Answer the question: do you have an existing brigade?",
+      "buttons": [
+        {
+          "label": "I have a brigade",
+          "action": "goto",
+          "target": "vip_brigade_exists"
+        },
+        {
+          "label": "I don't have any brigade",
+          "action": "goto",
+          "target": "vip_get_urls"
+        }
+      ]
+    },
+    {
+      "id": "vip_brigade_exists",
+      "message": "You have an active brigade - you're awesome! But to transfer all your keys and settings to the new VIP brigade, we need a way to identify your current brigade.\nYou have two options:",
+      "buttons": [
+        {
+          "label": "Name + 6 words!",
+          "action": "goto",
+          "target": "vip_name"
+        },
+        {
+          "label": "Via keydesk!",
+          "action": "goto",
+          "target": "vip_keydesk"
+        }
+      ]
+    },
+    {
+      "id": "vip_name",
+      "message": "Please type the brigadier name. That is, an adjective and a laureate's surname, for example \"Веселый Эйнштейн\" or \"Потрясающая Кюри\".",
+      "input": "text",
+      "on_failure": "vip_name"
+    },
+    {
+      "id": "vip_name_fail",
+      "message": "That doesn't look like a name, please try again. Be careful — you need to enter an adjective and a laureate's surname, for example \"Веселый Эйнштейн\" or \"Потрясающая Кюри\"",
+      "input": "text",
+      "on_failure": "vip_name_fail"
+    },
+    {
+      "id": "vip_words",
+      "message": "Great, now please tell us your 6 magic words.",
+      "input": "text",
+      "on_failure": "vip_words_fail"
+    },
+    {
+      "id": "vip_words_fail",
+      "message": "Open sesame didn't work — something's wrong with the name or the words. Be careful — the name consists of an adjective and a laureate's surname, for example \"Веселый Эйнштейн\" or \"Потрясающая Кюри\". And the six words must be in exactly the same order we gave them to you!\n\nIf you don't remember the name and/or magic words - maybe it's time to start fresh. "
+    },
+    {
+      "id": "vip_identify_locked",
+      "message": "Sorry, you already failed entering the name and 6 words before, so you'll need to wait %d hour(s) before trying again."
+    },
+    {
+      "id": "vip_keydesk",
+      "message": "Okay, you have access to the key manager; all you need to do is log in (https://vpn.works/) and click the \"VIP-Squad\" button in the top right corner."
     }
   ],
-  "updated_at": "2026-04-28T00:00:00Z"
+  "updated_at": "2026-07-09T09:23:53.380244Z"
 }
