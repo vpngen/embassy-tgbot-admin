@@ -15,6 +15,11 @@
           "label": "Yearly",
           "action": "url",
           "target": "https://t.me/tribute/app?startapp=sEtO"
+        },
+        {
+          "label": "Go back",
+          "action": "goto",
+          "target": "welcome"
         }
       ]
     },
@@ -51,6 +56,11 @@
           "label": "I don't have any brigade",
           "action": "goto",
           "target": "vip_get_urls"
+        },
+        {
+          "label": "Go back",
+          "action": "goto",
+          "target": "welcome"
         }
       ]
     },
@@ -67,39 +77,86 @@
           "label": "Via keydesk!",
           "action": "goto",
           "target": "vip_keydesk"
+        },
+        {
+          "label": "Go back",
+          "action": "goto",
+          "target": "welcome"
         }
       ]
     },
     {
       "id": "vip_name",
       "message": "Please type the brigadier name. That is, an adjective and a laureate's surname, for example \"Веселый Эйнштейн\" or \"Потрясающая Кюри\".",
+      "buttons": [
+        {
+          "label": "Go back",
+          "action": "goto",
+          "target": "welcome"
+        }
+      ],
       "input": "text",
       "on_failure": "vip_name"
     },
     {
       "id": "vip_name_fail",
       "message": "That doesn't look like a name, please try again. Be careful — you need to enter an adjective and a laureate's surname, for example \"Веселый Эйнштейн\" or \"Потрясающая Кюри\"",
+      "buttons": [
+        {
+          "label": "Go back",
+          "action": "goto",
+          "target": "welcome"
+        }
+      ],
       "input": "text",
       "on_failure": "vip_name_fail"
     },
     {
       "id": "vip_words",
       "message": "Great, now please tell us your 6 magic words.",
+      "buttons": [
+        {
+          "label": "Go back",
+          "action": "goto",
+          "target": "vip_brigade_exists"
+        }
+      ],
       "input": "text",
       "on_failure": "vip_words_fail"
     },
     {
       "id": "vip_words_fail",
-      "message": "Open sesame didn't work — something's wrong with the name or the words. Be careful — the name consists of an adjective and a laureate's surname, for example \"Веселый Эйнштейн\" or \"Потрясающая Кюри\". And the six words must be in exactly the same order we gave them to you!\n\nIf you don't remember the name and/or magic words - maybe it's time to start fresh. "
+      "message": "Open sesame didn't work — something's wrong with the name or the words. Be careful — the name consists of an adjective and a laureate's surname, for example \"Веселый Эйнштейн\" or \"Потрясающая Кюри\". And the six words must be in exactly the same order we gave them to you!\n\nIf you don't remember the name and/or magic words - maybe it's time to start fresh. ",
+      "buttons": [
+        {
+          "label": "Home",
+          "action": "goto",
+          "target": "welcome"
+        }
+      ]
     },
     {
       "id": "vip_identify_locked",
-      "message": "Sorry, you already failed entering the name and 6 words before, so you'll need to wait %d hour(s) before trying again."
+      "message": "Sorry, you already failed entering the name and 6 words before, so you'll need to wait %d hour(s) before trying again.",
+      "buttons": [
+        {
+          "label": "Home",
+          "action": "goto",
+          "target": "welcome"
+        }
+      ]
     },
     {
       "id": "vip_keydesk",
-      "message": "Okay, you have access to the key manager; all you need to do is log in (https://vpn.works/) and click the \"VIP-Squad\" button in the top right corner."
+      "message": "Okay, you have access to the key manager; all you need to do is log in (https://vpn.works/) and click the \"VIP-Squad\" button in the top right corner.",
+      "buttons": [
+        {
+          "label": "Go back",
+          "action": "goto",
+          "target": "welcome"
+        }
+      ]
     }
   ],
-  "updated_at": "2026-07-09T09:23:53.380244Z"
+  "updated_at": "2026-07-15T08:08:17.100623355Z"
 }
