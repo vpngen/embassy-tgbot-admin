@@ -1,11 +1,14 @@
 package handler
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
+	"strconv"
 	"strings"
+	"time"
 
 	"github.com/vpngen/embassy-tgbot-admin/internal/auth"
 	"github.com/vpngen/embassy-tgbot-admin/internal/model"
@@ -37,6 +40,7 @@ func (h *Handler) RegisterRoutes(mux *http.ServeMux) {
 	protected.HandleFunc("PUT /api/flows/{id}", h.updateFlow)
 	protected.HandleFunc("DELETE /api/flows/{id}", h.deleteFlow)
 	protected.HandleFunc("POST /api/flows/publish", h.publishFlows)
+	protected.HandleFunc("GET /api/flows/export", h.exportFlows)
 	protected.HandleFunc("PATCH /api/flows/{id}/stages/{stageId}/buttons/reorder", h.reorderButtons)
 
 	protected.HandleFunc("GET /api/decisions", h.getDecisions)
@@ -207,6 +211,23 @@ func (h *Handler) publishFlows(w http.ResponseWriter, r *http.Request) {
 	jsonResponse(w, http.StatusOK, map[string]any{
 		"status": "published",
 	})
+}
+
+// exportFlows bundles every file in the flows directory into a zip and serves it as a download.
+func (h *Handler) exportFlows(w http.ResponseWriter, r *http.Request) {
+	var buf bytes.Buffer
+	if err := h.store.WriteZip(&buf); err != nil {
+		httpError(w, http.StatusInternalServerError, "failed to build archive: %s", err)
+		return
+	}
+
+	filename := fmt.Sprintf("flows-%s.zip", time.Now().UTC().Format("20060102-150405"))
+
+	w.Header().Set("Content-Type", "application/zip")
+	w.Header().Set("Content-Disposition", fmt.Sprintf(`attachment; filename="%s"`, filename))
+	w.Header().Set("Content-Length", strconv.Itoa(buf.Len()))
+	w.WriteHeader(http.StatusOK)
+	w.Write(buf.Bytes()) //nolint:errcheck
 }
 
 func (h *Handler) reorderButtons(w http.ResponseWriter, r *http.Request) {

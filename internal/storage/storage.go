@@ -1,8 +1,10 @@
 package storage
 
 import (
+	"archive/zip"
 	"encoding/json"
 	"fmt"
+	"io"
 	"os"
 	"path/filepath"
 	"strings"
@@ -153,6 +155,49 @@ func (fs *FileStore) readFile(path string) (*model.Flow, error) {
 	}
 
 	return &flow, nil
+}
+
+// WriteZip archives every file in the flows directory into a zip written to w.
+func (fs *FileStore) WriteZip(w io.Writer) error {
+	fs.mu.RLock()
+	defer fs.mu.RUnlock()
+
+	entries, err := os.ReadDir(fs.dir)
+	if err != nil {
+		return fmt.Errorf("read dir: %w", err)
+	}
+
+	zw := zip.NewWriter(w)
+
+	for _, e := range entries {
+		if e.IsDir() {
+			continue
+		}
+
+		if err := writeZipEntry(zw, fs.dir, e.Name()); err != nil {
+			return err
+		}
+	}
+
+	return zw.Close()
+}
+
+func writeZipEntry(zw *zip.Writer, dir, name string) error {
+	data, err := os.ReadFile(filepath.Join(dir, name))
+	if err != nil {
+		return fmt.Errorf("read %s: %w", name, err)
+	}
+
+	fw, err := zw.Create(name)
+	if err != nil {
+		return fmt.Errorf("create zip entry %s: %w", name, err)
+	}
+
+	if _, err := fw.Write(data); err != nil {
+		return fmt.Errorf("write zip entry %s: %w", name, err)
+	}
+
+	return nil
 }
 
 // GetDecisions loads the decisions config from decisions.json.

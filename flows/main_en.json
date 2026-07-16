@@ -4,7 +4,7 @@
   "stages": [
     {
       "id": "welcome",
-      "message": "🌐 *VPN Generator*– to stay connected with loved ones even when everything around is being shut down.\n\nIMPORTANT: here you get an entire server. It's a valuable and limited resource, so there are simple rules:\n\n• Start sharing VPN keys within 24 hours.\n• From day 8 after registration, have at least 10 active users.\n\nOr you can get a VIP brigade with higher speed and no waiting.\n\nPress the button below ↓",
+      "message": "🌐 *VPN Generator*– to stay connected with loved ones even when everything around is being shut down.\n\nIMPORTANT: here you get an entire server. It's a valuable and limited resource, so there are simple rules:\n\n• Start sharing VPN keys within 24 hours.\n• From day 8 after registration, have at least 5 active users.\n\nOr you can get a VIP brigade with higher speed and no waiting.\n\nPress the button below ↓",
       "buttons": [
         {
           "label": "I want a brigade",
@@ -13,8 +13,8 @@
         },
         {
           "label": "Buy VIP brigade",
-          "action": "call",
-          "target": "vip_get_urls"
+          "action": "goto",
+          "target": "vip_quiz"
         },
         {
           "label": "Restore my brigade",
@@ -127,7 +127,7 @@
     },
     {
       "id": "restore_name_fail",
-      "message": "That doesn't look like a name, please try again. Be careful — you need to enter an adjective and a laureate's surname, for example \"Веселый Эйнштейн\" or \"Потрясающая Кюри\".\n\nYou can start from scratch. But there's a catch: right now we can't issue a new regular brigade — resources are exhausted.\nBut you can get a VIP brigade right away 😎. It's yours — no limits, no waiting, no deletions.",
+      "message": "That doesn't look like a name, please try again. Be careful — you need to enter an adjective and a laureate's surname, for example \"Веселый Эйнштейн\" or \"Потрясающая Кюри\".\n\nYou can start from scratch. But there's a catch: right now we can't issue a new regular brigade — resources are exhausted.\nBut you can get a VIP brigade right away 😎. It's yours - no limits, no waiting, no deletions.",
       "buttons": [
         {
           "label": "I want a VIP brigade",
@@ -168,7 +168,7 @@
     },
     {
       "id": "restore_words_fail",
-      "message": "Open sesame didn't work — something's wrong with the name or the words. Be careful — the name consists of an adjective and a laureate's surname, for example \"Веселый Эйнштейн\" or \"Потрясающая Кюри\". And the six words must be in exactly the same order we gave them to you!\n\nIf you don't remember the name and/or magic words — maybe it's time to start fresh. But there's a catch: right now we can't issue a new regular brigade — resources are exhausted.\nBut you can get a VIP brigade right away 😎. It's yours — no limits, no waiting, no deletions.",
+      "message": "Open sesame didn't work — something's wrong with the name or the words. Be careful — the name consists of an adjective and a laureate's surname, for example \"Веселый Эйнштейн\" or \"Потрясающая Кюри\". And the six words must be in exactly the same order we gave them to you!\n\nIf you don't remember the name and/or magic words - maybe it's time to start fresh. \nBut you can get a VIP brigade right away 😎. It's yours - no limits, no waiting, no deletions.",
       "buttons": [
         {
           "label": "Try again",
@@ -259,7 +259,7 @@
     },
     {
       "id": "question_1",
-      "message": "1. *What’s the difference between free brigades and VIP?*\n\nFree brigades are *not always available* - sorry, fighting censorship is hard, and resources are not unlimited. We try to maintain comfortable speeds, but the free version has speed limits. There’s also one important rule: during the first week, you need to gather *at least 10 active users. Didn’t make it - the brigade gets deleted*. Those are the project rules.\n\nA VIP brigade gives you *protection from deletion, more stable speeds, a VIP key with no speed or traffic limits, and priority support*. And of course, you’ll also get a fancy luxury key vault design - you’re VIP after all :) ",
+      "message": "1. *What’s the difference between free brigades and VIP?*\n\nFree brigades are *not always available* - sorry, fighting censorship is hard, and resources are not unlimited. We try to maintain comfortable speeds, but the free version has speed limits. There’s also one important rule: during the first week, you need to gather *at least 5 active users. Didn’t make it - the brigade gets deleted*. Those are the project rules.\n\nA VIP brigade gives you *protection from deletion, more stable speeds, a VIP key with no speed or traffic limits, and priority support*. And of course, you’ll also get a fancy luxury key vault design - you’re VIP after all :) ",
       "buttons": [
         {
           "label": "← Go back ",
@@ -322,5 +322,5 @@
       ]
     }
   ],
-  "updated_at": "2026-05-18T14:31:44.342712395Z"
+  "updated_at": "2026-06-30T11:26:46.910012741Z"
 }
