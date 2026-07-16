@@ -4,7 +4,7 @@
   "stages": [
     {
       "id": "vip_get_urls",
-      "message": "Choose your VIP brigade plan:",
+      "message": "Great! You’re almost a VIP 😎\n\nYour brigade will be *protected from deletion and get a stable connection*, while you’ll *receive a separate key with unlimited speed and traffic.*\n\nChoose the VIP brigade that works best for you:\n",
       "buttons": [
         {
           "label": "Monthly",
@@ -41,11 +41,23 @@
     },
     {
       "id": "vip_already_active",
-      "message": "You already have an active VIP brigade."
+      "message": "Oh, it looks like your brigade is already VIP 😎\n\nFor now, we can’t make it any more VIP than that :)\n\nIf you think this is a mistake, please contact support.\n",
+      "buttons": [
+        {
+          "label": "Main menu",
+          "action": "goto",
+          "target": "welcome"
+        },
+        {
+          "label": "",
+          "action": "url",
+          "target": "https://t.me/vgsup_bot"
+        }
+      ]
     },
     {
       "id": "vip_quiz",
-      "message": "Answer the question: do you have an existing brigade?",
+      "message": "You’re almost an unlimited VIP 😎\n\nTo update your status correctly and securely, please answer one question:\n*Do you have a free brigade?*",
       "buttons": [
         {
           "label": "I have a brigade",
@@ -66,20 +78,20 @@
     },
     {
       "id": "vip_brigade_exists",
-      "message": "You have an active brigade - you're awesome! But to transfer all your keys and settings to the new VIP brigade, we need a way to identify your current brigade.\nYou have two options:",
+      "message": "You have an active brigade - you're awesome! 😎\n\nBut to transfer all your keys and settings correctly, we need a way to identify your current brigade.\n\nYou have two options:",
       "buttons": [
         {
-          "label": "Name + 6 words!",
+          "label": "Enter the name and 6 words",
           "action": "goto",
           "target": "vip_name"
         },
         {
-          "label": "Via keydesk!",
+          "label": "Log in through the Key Desk",
           "action": "goto",
           "target": "vip_keydesk"
         },
         {
-          "label": "Go back",
+          "label": "Main menu",
           "action": "goto",
           "target": "welcome"
         }
@@ -87,10 +99,10 @@
     },
     {
       "id": "vip_name",
-      "message": "Please type the brigadier name. That is, an adjective and a laureate's surname, for example \"Веселый Эйнштейн\" or \"Потрясающая Кюри\".",
+      "message": "Enter the brigadier’s name - an adjective followed by the laureate’s last name.\nFor example: “Веселый Эйнштейн” or “Потрясающая Кюри” ✍️",
       "buttons": [
         {
-          "label": "Go back",
+          "label": "Main menu",
           "action": "goto",
           "target": "welcome"
         }
@@ -100,7 +112,7 @@
     },
     {
       "id": "vip_name_fail",
-      "message": "That doesn't look like a name, please try again. Be careful — you need to enter an adjective and a laureate's surname, for example \"Веселый Эйнштейн\" or \"Потрясающая Кюри\"",
+      "message": "That doesn’t look like a brigadier’s name 🤔\n\nPlease try again and *enter an adjective followed by the laureate’s last name.*\nFor example: “Веселый Эйнштейн” or “Потрясающая Кюри”",
       "buttons": [
         {
           "label": "Go back",
@@ -113,7 +125,7 @@
     },
     {
       "id": "vip_words",
-      "message": "Great, now please tell us your 6 magic words.",
+      "message": "Great! Now please enter the 6 magic words ✨",
       "buttons": [
         {
           "label": "Go back",
@@ -126,37 +138,52 @@
     },
     {
       "id": "vip_words_fail",
-      "message": "Open sesame didn't work — something's wrong with the name or the words. Be careful — the name consists of an adjective and a laureate's surname, for example \"Веселый Эйнштейн\" or \"Потрясающая Кюри\". And the six words must be in exactly the same order we gave them to you!\n\nIf you don't remember the name and/or magic words - maybe it's time to start fresh. ",
+      "message": "Open sesame didn't work - something's wrong with the name or the words.🙈 \n\nBe careful - the name consists of *an adjective and a laureate's surname*, for example \"Веселый Эйнштейн\" or \"Потрясающая Кюри\". And the six words must be in *exactly the same order we gave them to you!*\n\nIf you don't remember the name and/or magic words - maybe it's time to start fresh. 😎",
       "buttons": [
         {
           "label": "Home",
           "action": "goto",
           "target": "welcome"
+        },
+        {
+          "label": "Become VIP 😎",
+          "action": "goto",
+          "target": "vip_get_urls"
         }
       ]
     },
     {
       "id": "vip_identify_locked",
-      "message": "Sorry, you already failed entering the name and 6 words before, so you'll need to wait %d hour(s) before trying again.",
+      "message": "Sorry, you’ve already entered the name and 6 words incorrectly, so you’ll need to wait %d hours before trying again ⏳\n\nDon’t want to wait? You can create *a new VIP brigade from scratch - it will be yours right away, with no waiting or limits* :)",
       "buttons": [
         {
           "label": "Home",
           "action": "goto",
           "target": "welcome"
+        },
+        {
+          "label": "Become VIP 😎",
+          "action": "goto",
+          "target": "vip_get_urls"
         }
       ]
     },
     {
       "id": "vip_keydesk",
-      "message": "Okay, you have access to the key manager; all you need to do is log in (https://vpn.works/) and click the \"VIP-Squad\" button in the top right corner.",
+      "message": "Great, we’ll upgrade your brigade through the Key desk 🙌\n\nLog in (https://vpn.works/) with *your brigadier key* and click the “VIP Brigade” banner in the top-right corner - where Sasha Bely is. We’ll take care of the rest :)\n",
       "buttons": [
         {
           "label": "Go back",
           "action": "goto",
           "target": "welcome"
+        },
+        {
+          "label": "Go to Key desk",
+          "action": "url",
+          "target": "https://vpn.works"
         }
       ]
     }
   ],
-  "updated_at": "2026-07-15T08:08:17.100623355Z"
+  "updated_at": "2026-07-15T15:56:22.087613402Z"
 }
