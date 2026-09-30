@@ -191,7 +191,7 @@
         {
           "label": "Стать VIP-бригадиром",
           "action": "url",
-          "target": "https://t.me/vpngeneratorstagebot?start={{brigade_ref}}"
+          "target": "https://t.me/vpngeneratorstagebot?start=vip_quiz"
         },
         {
           "label": "Закрыть",
