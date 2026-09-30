@@ -183,6 +183,22 @@
           "target": "https://vpn.works"
         }
       ]
+    },
+    {
+      "id": "push_vip_discount_last_day",
+      "message": "*Last day to get VIP for €70 instead of €100 🚀*\n\nHi! You've recently joined Generator - and it's not exactly the calmest time. Blocking continues, so some free keys may work inconsistently.\n\nIf you want extra protection for your brigade, upgrade to VIP.\n\n*VIP brigade for the first year - €70 instead of €100*\n\nYou'll get an *unlimited VIP key*, protection from brigade deletion, and *priority assistance during blocking waves*.\n\n*Today is the last day of the discount. Tomorrow, the price goes back to €100.*\n\nUpgrade to VIP and stay connected :)",
+      "buttons": [
+        {
+          "label": "Become a VIP Brigadier",
+          "action": "url",
+          "target": "https://t.me/vpngeneratorstagebot?start={{brigade_ref}}"
+        },
+        {
+          "label": "Close",
+          "action": "call",
+          "target": "close"
+        }
+      ]
     }
   ],
   "updated_at": "2026-07-15T15:56:22.087613402Z"
