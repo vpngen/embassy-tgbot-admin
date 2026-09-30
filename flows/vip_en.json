@@ -191,7 +191,7 @@
         {
           "label": "Become a VIP Brigadier",
           "action": "url",
-          "target": "https://t.me/vpngeneratorstagebot?start=vip_quiz"
+          "target": "https://t.me/vpngeneratorbot?start=vip_quiz"
         },
         {
           "label": "Close",
